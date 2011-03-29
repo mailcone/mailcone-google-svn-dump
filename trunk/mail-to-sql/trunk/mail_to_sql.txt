@@ -1,0 +1,112 @@
+# -*- coding: utf-8 -*-
+
+import moduls, which are needed for tests
+::
+	>>> from config import CONFIG
+	>>> import logging
+	>>> import sys
+	>>> import os
+	>>> from controller.loggers import Loggers
+	>>> from controller.notificationSystem import NotificationSystem
+ 
+XXX: hack, to find testMail2 file, perhaps could be done better
+::	
+	>>> path = sys.argv [0].replace ('test_mail_to_sql.py', '') 
+ 
+set CONFIG parameters which are set in default.cfg
+::
+	>>> from mail_to_sql import parseConfig
+	>>> parseConfig (path + 'default.cfg')
+ 
+setup for tests
+log must be create because, mail_to_sql.py need a logger
+::
+	>>> logs = Loggers ()
+	>>> overall = {}
+	>>> overall ['id'] = 'overall'
+	>>> overall ['logname'] = 'TEST OVERALL'
+	>>> overall ['path'] = CONFIG ['infologpath']
+	>>> overall ['filename'] = 'test-overall'
+	>>> overall ['separate'] = False
+	>>> overall ['logformat'] = '%(process)d - %(asctime)s - %(name)s - %(levelname)s - %(message)s'
+	>>> logs.createLog (**overall)
+	
+	>>> infolog = {}
+	>>> infolog ['id'] = 'info'
+	>>> infolog ['logname'] = 'TESTLOG'
+	>>> infolog ['path'] = CONFIG ['infologpath']
+	>>> infolog ['filename'] = 'test-info'
+	>>> infolog ['separate'] = False
+	>>> infolog ['logformat'] = '%(process)d - %(asctime)s - %(name)s - %(levelname)s - %(message)s'
+	>>> logs.createLog (**infolog)
+	
+	>>> errorlog = {}
+	>>> errorlog ['id'] = 'error'
+	>>> errorlog ['logname'] = 'TESTLOG'
+	>>> errorlog ['path'] = CONFIG ['infologpath']
+	>>> errorlog ['filename'] = 'test-errorlog'
+	>>> errorlog ['separate'] = False
+	>>> errorlog ['logformat'] = '%(process)d - %(asctime)s - %(name)s - %(levelname)s - %(message)s'
+	>>> logs.createLog (**errorlog)
+
+
+FUNCTIONS storeDataToDataobjects MUST BE TESTED
+FUNCTIONS parseData, saveMailInDatabase, saveAttachmentOnFilesystem ARE UTILS AND TESTED BY THEMSELF 
+
+test function write to debug log - line must also be added in notificationMail.message
+::
+	>>> CONFIG ['sender'] = 'TEST'
+	>>> CONFIG ['receivers'] = 'TEST'
+	>>> CONFIG ['smtpserver'] = 'TEST'
+	>>> CONFIG ['smtpauth'] = True
+	>>> CONFIG ['smtpuser'] = 'TEST'
+	>>> CONFIG ['smtppassword'] = 'TEST' 
+	>>> CONFIG ['subject'] = 'TEST'
+	>>> notificationMail = NotificationSystem(CONFIG['sender'],CONFIG ['receivers'],CONFIG['smtpserver'],CONFIG['smtpauth'],CONFIG['smtpuser'],CONFIG['smtppassword'],CONFIG['subject'])
+	>>> logs.setNotificationMail (notificationMail)
+	>>> logs.writeLog ('debug', 'info', 'This is a test log line, with should also appear in notificationMessage')
+	>>> print notificationMail.message
+	info - This is a test log line, with should also appear in notificationMessage...
+
+test function storeDataToDataobjects - testMail2
+::
+	>>> from mail_to_sql import parseData
+	>>> from mail_to_sql import storeDataToDataobjects
+	>>> file = open (path + 'tests/testMail2', 'r')
+	>>> mailStdin = file.read ()
+	>>> mailDict = parseData (mailStdin, logs, CONFIG)
+	>>> mail = storeDataToDataobjects (mailDict, logs, CONFIG)
+	>>> mail.header
+	'Return-Path <m.lempen@bluewin.ch>\nReceived from parlarix.raptus.local ([192.168.8.14])\n\tby groupix.raptus.local\n\tfor mlempen@raptus.com;\n\tMon, 13 Dec 2010 09:43:00 +0100\nReceived from host1.raptus.com (gatenix.raptus.local [192.168.8.1])\n\tby parlarix.raptus.local (Postfix) with ESMTP id 2088C4408\n\tfor <mlempen@raptus.com>; Mon, 13 Dec 2010 09:43:00 +0100 (CET)\nReceived from localhost (localhost.localhost [127.0.0.1])\n\tby host1.raptus.com (Postfix) with ESMTP id 27EFAAC005\n\tfor <mlempen@raptus.com>; Mon, 13 Dec 2010 09:43:00 +0100 (CET)\nX-Virus-Scanned by Endian Firewall\nX-Spam-CTCH-RefID \nReceived from mail16.bluewin.ch (mail16.bluewin.ch [195.186.19.63])\n\tby host1.raptus.com (Postfix) with ESMTP id 7B26BAC002\n\tfor <mlempen@raptus.com>; Mon, 13 Dec 2010 09:42:59 +0100 (CET)\nReceived from [195.186.19.205] ([195.186.19.205:64820] helo=ps28zhh.bluewin.ch)\n\tby mail16.bluewin.ch (envelope-from <m.lempen@bluewin.ch>)\n\t(ecelerity 2.2.2.41 r(31179/31189)) with ESMTP\n\tid D3/5D-15979-29CD50D4; Mon, 13 Dec 2010 08:42:58 +0000\nReceived from ps28zhh.bluewin.ch (localhost [127.0.0.1])\n\tby ps28zhh.bluewin.ch (Postfix) with ESMTP id 764611A712\n\tfor <mlempen@raptus.com>; Mon, 13 Dec 2010 08:42:58 +0000 (GMT)\nReceived from (127.0.0.1) by ps28zhh.bluewin.ch;  Mon, 13 Dec 2010 08:42:58 +0000\nMessage-ID <21075616.32121292229778480.JavaMail.webmail@bluewin.ch>\nDate Mon, 13 Dec 2010 08:42:58 +0000 (GMT+00:00)\nFrom "m.lempen@bluewin.ch" <m.lempen@bluewin.ch>\nReply-To m.lempen@bluewin.ch\nTo mlempen@raptus.com\nSubject =?UTF-8?Q?Testmail_mit_Umlauten_=C3=A4,=C3=B6,=C3=BC?=\nMIME-Version 1.0\nContent-Type text/plain;charset="UTF-8"\nContent-Transfer-Encoding base64\nX-FXIT-IP 213.142.176.104\nX-Bluewin-ln de\n'
+	
+	>>> mail.mail_from
+	'm.lempen@bluewin.ch'
+	
+	>>> mail.mail_from_domain
+	'bluewin.ch'
+	
+	>>> mail.mail_to
+	'mlempen@raptus.com'
+	
+	>>> mail.mail_to_domain
+	'raptus.com'
+	
+	>>> mail.date
+	datetime.datetime(2010, 12, 13, 8, 42, 58, tzinfo=tzutc())
+	
+	>>> mail.subject
+	'Testmail mit Umlauten \xc3\xa4,\xc3\xb6,\xc3\xbc'
+	
+	>>> mail.content
+	'\xc3\xa9, \xc3\xa0, \xc3\xa8\n\n\xc3\xa4, \xc3\xb6, \xc3\xbc\n\n\xc3\xbf, \xc3\xab, \xe2\x82\xac\n'
+
+close and remove log data create for test
+::
+	>>> logs.closeLogs ()
+
+	>>> overalllogtestfile = os.path.join (CONFIG ['infologpath'], logs.getLogfilename ('overall'))
+	>>> infologtestfile = os.path.join (CONFIG ['infologpath'], logs.getLogfilename ('info'))
+	>>> errorlogtestfile = os.path.join (CONFIG ['infologpath'], logs.getLogfilename ('error'))
+	>>> os.remove (overalllogtestfile)
+	>>> os.remove (infologtestfile)
+	>>> os.remove (errorlogtestfile) 
