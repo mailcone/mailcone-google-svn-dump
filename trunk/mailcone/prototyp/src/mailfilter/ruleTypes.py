@@ -3,6 +3,8 @@
 """
 import grok
 
+from zope.component import getUtility
+from mfa_core_action.interfaces import IActionMatchType
 from mailfilter.interfaces import IRuleType
 
 class RuleType(object):
@@ -28,9 +30,9 @@ class AndCombination(RuleType, grok.GlobalUtility):
         executeMails = self.mails
         for filter in self.rule.getFilters():
             executeMails = filter.apply(executeMails)
-        if executeMails:
-            return True
-        return False
+        for action in self.getActions():
+            mtUtil = getUtility(IActionMatchType, action.match)
+            mtUitl.apply(action, executeMails)
 
 class OrCombination(RuleType, grok.GlobalUtility):
     """ XXX """

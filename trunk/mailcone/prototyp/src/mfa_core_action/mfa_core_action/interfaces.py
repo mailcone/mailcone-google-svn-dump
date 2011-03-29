@@ -60,7 +60,7 @@ class IActionContainer(Interface):
 class IActionManager(Interface):
     """ Interface for action manager """
     
-    def listActionTypes(self, context):
+    def listActionTypes(context):
         """ 
             return a dict of all registered filterType utils - dict provides keys 
             (title and url), the context must be a view object
@@ -68,7 +68,10 @@ class IActionManager(Interface):
 
 class IActionMatchType(Interface):
     """ Interface for match types """
-    name = interface.Attribute('name') 
+    name = interface.Attribute('name')
+    
+    def apply(action, resultMails):
+        """ XXX """
         
 class IActionMatchTypeManager(Interface):
     """ Interface for match types manager """

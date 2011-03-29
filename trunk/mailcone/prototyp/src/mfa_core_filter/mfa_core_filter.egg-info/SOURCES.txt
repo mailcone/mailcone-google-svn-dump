@@ -5,6 +5,8 @@ mfa_core_filter/configure.zcml
 mfa_core_filter/contents.py
 mfa_core_filter/interfaces.py
 mfa_core_filter/resource.py
+mfa_core_filter/simpleOperators.py
+mfa_core_filter/sources.py
 mfa_core_filter/utils.py
 mfa_core_filter.egg-info/PKG-INFO
 mfa_core_filter.egg-info/SOURCES.txt

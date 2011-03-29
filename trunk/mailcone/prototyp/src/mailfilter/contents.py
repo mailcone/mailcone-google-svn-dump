@@ -305,10 +305,7 @@ class Rule(grok.Container, SearchableContentMixin):
         """
         ruleTypeUtil = getUtility(IRuleType, self.matching)
         matchType = ruleTypeUtil.apply(mails, self)
-        for action in self.getActions():
-            print action
-            #XXX apply action if for match or not match
-            action.apply()
+            
         #XXX update last match
         
 class Mail(rdb.Model):
