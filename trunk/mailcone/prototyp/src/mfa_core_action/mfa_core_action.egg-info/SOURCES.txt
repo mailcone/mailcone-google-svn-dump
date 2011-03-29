@@ -1,6 +1,7 @@
 setup.cfg
 setup.py
 mfa_core_action/__init__.py
+mfa_core_action/actionMatchTypes.py
 mfa_core_action/configure.zcml
 mfa_core_action/contents.py
 mfa_core_action/interfaces.py

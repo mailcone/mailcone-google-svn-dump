@@ -3,7 +3,6 @@ buildout.cfg
 setup.py
 versions.cfg
 develop-eggs/mailFilter.egg-link
-dumpForTests/pgsql_m2stest_nightly_dump.pgsql
 etc/README.txt
 etc/debug.ini.in
 etc/deploy.ini.in
@@ -27,10 +26,14 @@ src/mailfilter/app.py
 src/mailfilter/configlets.py
 src/mailfilter/configure.zcml
 src/mailfilter/contents.py
+src/mailfilter/database_cfg.py
 src/mailfilter/forms.py
 src/mailfilter/indexes.py
 src/mailfilter/interfaces.py
+src/mailfilter/periodUnits.py
 src/mailfilter/resource.py
+src/mailfilter/ruleTypes.py
+src/mailfilter/severities.py
 src/mailfilter/utils.py
 src/mailfilter/viewletmanagers.py
 src/mailfilter/views.py
@@ -59,6 +62,7 @@ src/mailfilter/tests/tests.py
 src/mailfilter/views_templates/controlpanel_viewlet.pt
 src/mailfilter/views_templates/dashboard_viewlet.pt
 src/mailfilter/views_templates/editicons_macro.pt
+src/mailfilter/views_templates/filtering_view.pt
 src/mailfilter/views_templates/footercontrolpanelviewlet.pt
 src/mailfilter/views_templates/head.pt
 src/mailfilter/views_templates/master.pt
@@ -95,6 +99,7 @@ src/mfa_complexmatchfilter/mfa_complexmatchfilter/views_templates/master.pt
 src/mfa_core_action/setup.cfg
 src/mfa_core_action/setup.py
 src/mfa_core_action/mfa_core_action/__init__.py
+src/mfa_core_action/mfa_core_action/actionMatchTypes.py
 src/mfa_core_action/mfa_core_action/configure.zcml
 src/mfa_core_action/mfa_core_action/contents.py
 src/mfa_core_action/mfa_core_action/interfaces.py
@@ -166,6 +171,8 @@ src/mfa_core_filter/mfa_core_filter/configure.zcml
 src/mfa_core_filter/mfa_core_filter/contents.py
 src/mfa_core_filter/mfa_core_filter/interfaces.py
 src/mfa_core_filter/mfa_core_filter/resource.py
+src/mfa_core_filter/mfa_core_filter/simpleOperators.py
+src/mfa_core_filter/mfa_core_filter/sources.py
 src/mfa_core_filter/mfa_core_filter/utils.py
 src/mfa_core_filter/mfa_core_filter.egg-info/PKG-INFO
 src/mfa_core_filter/mfa_core_filter.egg-info/SOURCES.txt
@@ -251,6 +258,8 @@ src/mfa_writelogaction/mfa_writelogaction/configure.zcml
 src/mfa_writelogaction/mfa_writelogaction/contents.py
 src/mfa_writelogaction/mfa_writelogaction/forms.py
 src/mfa_writelogaction/mfa_writelogaction/interfaces.py
+src/mfa_writelogaction/mfa_writelogaction/logfileUtils.py
+src/mfa_writelogaction/mfa_writelogaction/loglevelUtils.py
 src/mfa_writelogaction/mfa_writelogaction/resource.py
 src/mfa_writelogaction/mfa_writelogaction/utils.py
 src/mfa_writelogaction/mfa_writelogaction/views.py

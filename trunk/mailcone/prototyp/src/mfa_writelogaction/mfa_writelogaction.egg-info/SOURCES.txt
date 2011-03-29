@@ -6,6 +6,8 @@ mfa_writelogaction/configure.zcml
 mfa_writelogaction/contents.py
 mfa_writelogaction/forms.py
 mfa_writelogaction/interfaces.py
+mfa_writelogaction/logfileUtils.py
+mfa_writelogaction/loglevelUtils.py
 mfa_writelogaction/resource.py
 mfa_writelogaction/utils.py
 mfa_writelogaction/views.py
