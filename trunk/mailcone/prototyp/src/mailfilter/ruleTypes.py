@@ -30,9 +30,9 @@ class AndCombination(RuleType, grok.GlobalUtility):
         executeMails = self.mails
         for filter in self.rule.getFilters():
             executeMails = filter.apply(executeMails)
-        for action in self.getActions():
+        for action in self.rule.getActions():
             mtUtil = getUtility(IActionMatchType, action.match)
-            mtUitl.apply(action, executeMails)
+            mtUtil.apply(action, executeMails)
 
 class OrCombination(RuleType, grok.GlobalUtility):
     """ XXX """

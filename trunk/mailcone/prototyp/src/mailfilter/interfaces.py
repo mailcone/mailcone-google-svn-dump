@@ -55,10 +55,10 @@ class IControlPanel(Interface):
         """ return a list of dicts with the keys (title and url) for registered configlets """
         
 class IRuleJSExtenerManager(Interface):
-    """ XXX -test """
+    """ XXX """
     
 class IControlPanelJSExtention(Interface):
-    """ XXX -test """
+    """ XXX """
         
 class IConfiglet(Interface):
     """ marker interface for a configlet """    
@@ -280,7 +280,7 @@ class IRule(Interface):
     sortNr = interface.Attribute('sortNr')
     
     def setSortNr():
-        """XXX"""
+        """ XXX """
     
     def setLastModificationUser():
         """ XXX """
@@ -295,4 +295,15 @@ class IRule(Interface):
         """ XXX """
         
     def apply(mails):
-        """ XXX - test """
+        """ XXX """
+
+class ISmtpServerUtil(Interface):
+    """ XXX """
+    host = interface.Attribute('host')
+    user = interface.Attribute('user')
+    passwd = interface.Attribute('passwd')
+    authrequeried = interface.Attribute('authrequeried')
+
+    def send(mail):
+        """ send given mail obj over configured smtp host
+        given mail must be a MIMEText object"""

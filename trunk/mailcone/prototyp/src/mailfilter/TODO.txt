@@ -57,4 +57,12 @@ TODO
 - popup js for testmail
 - icon for testmail 
 
-- load rulesets popup, hover show description of ruleset or rule 
+- load rulesets popup, hover show description of ruleset or rule
+
+- smtp server must be configurable
+
+Future Versions:
+===============
+- standard Header or Footer for sendNotificationAction
+- Write tests
+- Write documentation
