@@ -14,5 +14,7 @@ CREATE TABLE mail (
     header text,
     subject varchar(250),
     content text,
-    path_to_attachments text
+    path_to_attachments text,
+    matched boolean,
+    match_on date
 );
