@@ -32,3 +32,9 @@
 #columnRulesetSelector {
 	width: 200px;
 }
+
+#settingTabResultContainer {
+	clear: both;
+	border-top: solid 1px #CECECE;
+	padding: 5px;
+}

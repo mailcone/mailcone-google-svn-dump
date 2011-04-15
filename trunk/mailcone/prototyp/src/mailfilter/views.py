@@ -18,7 +18,8 @@ from mailfilter.interfaces import (
     IControlPanel, 
     IRuleSet, 
     IRule, 
-    IRuleContainer
+    IRuleContainer,
+    ISettingConfigletManager
 )
 
 from mfa_core_action.interfaces import IActionManager
@@ -129,6 +130,7 @@ class RuleSetConfigletViewlet(grok.Viewlet):
     grok.template('rulesets_configlet')
     grok.view(RuleSetConfigletView)
 
+# XXX - should be renamed to settings configlet
 class AppConfigletView(grok.View):
     """ Provide configlet for app settings """
     grok.context(MailfilterApp)
@@ -136,15 +138,80 @@ class AppConfigletView(grok.View):
     grok.template('master')
     grok.require('mailfilter.manageUsers')
 
+# XXX - should be renamed to settings configlet
 class AppConfigletViewlet(grok.Viewlet):
     """ Provide viewlet for AppConfigletView """
     grok.viewletmanager(Main)
     grok.context(MailfilterApp)
-#    grok.template('app_configlet')
+    grok.template('app_configlet')
     grok.view(AppConfigletView)
 
+    def listSettingConfiglets(self):
+        scm = getUtility(ISettingConfigletManager)
+        return scm.listConfiglets()
+
+#
+# Setting Configlets
+#
+class AppSettingConfigletView(grok.View):
+    """ Provide configlet for app settings """
+    grok.context(MailfilterApp)
+    grok.name('appSettings')
+    grok.template('master')
+    grok.require('mailfilter.manageUsers')
+
+class AppSettingConfigletViewlet(grok.Viewlet):
+    """ Provide viewlet for AppSettingConfigletView """
+    grok.viewletmanager(Main)
+    grok.context(MailfilterApp)
+    grok.view(AppSettingConfigletView)
+
     def update(self):
-        self.form = getMultiAdapter((self.context, self.request), name='editappconfiglet')
+        self.form = getMultiAdapter((self.context, self.request), name='editappsettings')
+        self.form.update_form()
+
+    def render(self):
+        return self.form.render()
+
+#XXX - move to mfa_core_filter
+class FilterSettingConfigletView(grok.View):
+    """ Provide configlet for app settings """
+    grok.context(MailfilterApp)
+    grok.name('filterSettings')
+    grok.template('master')
+    grok.require('mailfilter.manageUsers')
+
+#XXX - move to mfa_core_filter
+class FilterSettingConfigletViewlet(grok.Viewlet):
+    """ Provide viewlet for AppSettingConfigletView """
+    grok.viewletmanager(Main)
+    grok.context(MailfilterApp)
+    grok.view(FilterSettingConfigletView)
+
+    def update(self):
+        self.form = getMultiAdapter((self.context, self.request), name='editappsettings')
+        self.form.update_form()
+
+    def render(self):
+        return self.form.render()
+
+#XXX - move to mfa_core_action
+class ActionSettingConfigletView(grok.View):
+    """ Provide configlet for app settings """
+    grok.context(MailfilterApp)
+    grok.name('actionSettings')
+    grok.template('master')
+    grok.require('mailfilter.manageUsers')
+
+#XXX - move to mfa_core_action
+class ActionSettingConfigletViewlet(grok.Viewlet):
+    """ Provide viewlet for AppSettingConfigletView """
+    grok.viewletmanager(Main)
+    grok.context(MailfilterApp)
+    grok.view(ActionSettingConfigletView)
+
+    def update(self):
+        self.form = getMultiAdapter((self.context, self.request), name='editappsettings')
         self.form.update_form()
 
     def render(self):

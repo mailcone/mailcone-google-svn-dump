@@ -18,6 +18,8 @@ from mailfilter.interfaces import (
     IControlPanelJSExtention,
     IControlPanel,
     IConfiglet,
+    ISettingConfigletManager,
+    ISettingConfiglet,
     ISmtpServerUtil
 )
 
@@ -31,6 +33,20 @@ class ControlPanel(grok.GlobalUtility):
     
     def listConfiglets(self):
         """ return a list of dicts with the keys (title and url) for registered configlets """
+        return [{'id' :configlet[1].id, 
+                 'title' : configlet[1].title, 
+                 'url' :configlet[1].url} for configlet in self._getConfiglets()]
+
+class SettingConfigletManager(grok.GlobalUtility):
+    """ Provide a utility for setting cofiglet management """
+    grok.implements(ISettingConfigletManager)
+    
+    def _getConfiglets(self):
+        """ XXX """
+        return getUtilitiesFor(ISettingConfiglet)
+    
+    def listConfiglets(self):
+        """ XXX """
         return [{'id' :configlet[1].id, 
                  'title' : configlet[1].title, 
                  'url' :configlet[1].url} for configlet in self._getConfiglets()]
