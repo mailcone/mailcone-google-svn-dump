@@ -1,4 +1,4 @@
-<!-- move to mfa_core_auth -->
+// XXX - move to mfa_core_auth
 
 $('#UserConfiglet').live('click', function(e){
 	e.preventDefault();

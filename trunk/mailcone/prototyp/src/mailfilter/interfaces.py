@@ -48,11 +48,19 @@ class ICopy(Interface):
     def copy(context):
         """ copy the instance to the given context - if childes provide ICopy they will copy too """
 
+# XXX - should be renamed to IConfigletManager
 class IControlPanel(Interface):
     """ Interface for control panel """
     
     def listConfiglets():
         """ return a list of dicts with the keys (title and url) for registered configlets """
+
+# XXX - should be inherit from IControlPanel        
+class ISettingConfigletManager(Interface):
+    """ XXX """
+    
+    def listConfiglets():
+        """ XXX """
         
 class IRuleJSExtenerManager(Interface):
     """ XXX """
@@ -63,6 +71,13 @@ class IControlPanelJSExtention(Interface):
 class IConfiglet(Interface):
     """ marker interface for a configlet """    
 
+    id = interface.Attribute('id')
+    title = interface.Attribute('title')
+    url = interface.Attribute('url')
+    
+class ISettingConfiglet(Interface):
+    """ marker interface for a setting configlet """
+    
     id = interface.Attribute('id')
     title = interface.Attribute('title')
     url = interface.Attribute('url')

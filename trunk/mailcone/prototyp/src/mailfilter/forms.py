@@ -9,7 +9,7 @@ from mailfilter.contents import RuleSet, Rule
 #
 # App configuration
 #
-class EditAppConfiglet(grok.EditForm):
+class EditAppSettings(grok.EditForm):
     """ XXX """
     grok.context(MailfilterApp)
     form_fields = grok.AutoFields(IMailfilterApp)
