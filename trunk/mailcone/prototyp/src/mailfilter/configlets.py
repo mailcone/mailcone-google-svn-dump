@@ -72,7 +72,7 @@ class FilterSettingConfiglet(grok.GlobalUtility):
 #XXX - should be moved to mfa_core_action    
 class ActionSettingConfiglet(grok.GlobalUtility):
     """ XXX """
-    grok.implements(ISettingConfiglet)
+    grok.implements(IActionSettingConfiglet)
     grok.name('ActionSettings')
     
     id = 'ActionSettings' # defines link id
