@@ -1,3 +1,6 @@
+/*
+ * XXX
+ */
 $('#AppConfiglet').live('click', function(e){
 	e.preventDefault();
 	$('#tabs').find('a').each(function(){
@@ -16,6 +19,9 @@ $('#AppConfiglet').live('click', function(e){
 	});
 });
 
+/*
+ * XXX
+ */
 $('#AppSettings').live('click', function(e){
 	e.preventDefault();
 	$('#tabs').find('a').each(function(){
@@ -25,6 +31,9 @@ $('#AppSettings').live('click', function(e){
 	$('#settingTabResultContainer').load($(this).attr('href') + ' form');
 });
 
+/*
+ * XXX
+ */
 $('#DatabaseSettings').live('click', function(e){
 	e.preventDefault();
 	$('#tabs').find('a').each(function(){
@@ -35,6 +44,9 @@ $('#DatabaseSettings').live('click', function(e){
 });
 
 // XXX - should be moved to mfa_core_action
+/*
+ * XXX
+ */
 $('#ActionSettings').live('click', function(e){
 	e.preventDefault();
 	$('#tabs').find('a').each(function(){
@@ -46,6 +58,9 @@ $('#ActionSettings').live('click', function(e){
 });
 
 // XXX - should be moved to mfa_core_filter
+/*
+ * XXX
+ */
 $('#FilterSettings').live('click', function(e){
 	e.preventDefault();
 	$('#tabs').find('a').each(function(){
@@ -54,4 +69,51 @@ $('#FilterSettings').live('click', function(e){
 	$(this).addClass('activeTab');
 	// XXX - will be not a form later
 	$('#settingTabResultContainer').load($(this).attr('href') + ' form');
+});
+
+/*
+ * XXX
+ */
+$('#SmtpSettings').live('click', function(e){
+	e.preventDefault();
+	$('#tabs').find('a').each(function(){
+		$(this).removeClass('activeTab');
+	});
+	$(this).addClass('activeTab');
+	$('#settingTabResultContainer').load($(this).attr('href') + ' form');
+});
+
+/*
+ * XXX
+ */
+$("input[name='form.actions.saveSmtpSettings']").live('click', function(e){
+	e.preventDefault();
+	
+	var form = $(this).parents('form:first');
+	
+	var host = $("input[name=form.host]").val();
+	var email = $("input[name=form.email]").val();
+	var authrequired = ''; 
+	if ($(form).find("input[name=form.authrequeried]").attr('checked')){
+		authrequired = $(form).find("input[name=form.authrequeried]").val();
+	};
+	var user = $("input[name=form.user]").val();
+	var passwd = $("input[name=form.passwd]").val();
+	var buttonId = $(form).find("input[type=submit]").val();
+
+	var dataString = 'form.host='+ host +
+					 '&form.email=' + email +
+					 '&form.authrequeried='+ authrequired +
+					 '&form.user='+ user +
+					 '&form.passwd='+ passwd +
+					 '&form.actions.saveSmtpSettings=' + buttonId;
+	
+	$.ajax({  
+		type: "POST",  
+		url: $(form).attr('action'),  
+		data: dataString,
+		success: function(data){
+			$('#settingTabResultContainer').prepend('<div class="messageBox">SETTINGS SAVED!</div>');
+		}
+	});
 });

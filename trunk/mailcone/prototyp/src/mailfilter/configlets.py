@@ -50,6 +50,15 @@ class DatabaseSettingConfiglet(grok.GlobalUtility):
     title = 'database' # defines link content
     url = 'databaseSettings'
 
+class SmtpSettingConfiglet(grok.GlobalUtility):
+    """ XXX """
+    grok.implements(ISettingConfiglet)
+    grok.name('SmtpSettings')
+    
+    id = 'SmtpSettings' # defines link id
+    title = 'smtp' # defines link content
+    url = 'smtpSettings'
+
 #XXX - should be moved to mfa_core_filter
 class FilterSettingConfiglet(grok.GlobalUtility):
     """ XXX """

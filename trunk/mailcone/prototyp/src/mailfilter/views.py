@@ -19,7 +19,8 @@ from mailfilter.interfaces import (
     IRuleSet, 
     IRule, 
     IRuleContainer,
-    ISettingConfigletManager
+    ISettingConfigletManager,
+    ISmtpServerUtil
 )
 
 from mfa_core_action.interfaces import IActionManager
@@ -186,14 +187,26 @@ class DatabaseSettingConfigletViewlet(grok.Viewlet):
     grok.context(MailfilterApp)
     grok.view(DatabaseSettingConfigletView)
     grok.template('db_settings')
+    
+class SmtpSettingConfigletView(grok.View):
+    """ Provide configlet for app settings """
+    grok.context(ISmtpServerUtil)
+    grok.name('index')
+    grok.template('master')
+    grok.require('mailfilter.manageUsers')
 
-# XXX - not implemented yet
-#    def update(self):
-#        self.form = getMultiAdapter((self.context, self.request), name='editdbsettings')
-#        self.form.update_form()
+class SmtpSettingConfigletViewlet(grok.Viewlet):
+    """ Provide viewlet for AppSettingConfigletView """
+    grok.viewletmanager(Main)
+    grok.context(ISmtpServerUtil)
+    grok.view(SmtpSettingConfigletView)
 
-#    def render(self):
-#        return self.form.render()
+    def update(self):
+        self.form = getMultiAdapter((self.context, self.request), name='editsmtpsettings')
+        self.form.update_form()
+
+    def render(self):
+        return self.form.render()
 
 #XXX - move to mfa_core_filter
 class FilterSettingConfigletView(grok.View):

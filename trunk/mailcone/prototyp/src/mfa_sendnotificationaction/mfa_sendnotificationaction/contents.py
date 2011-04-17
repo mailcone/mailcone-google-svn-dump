@@ -54,7 +54,6 @@ class SendNotificationAction(grok.Model, SearchableContentMixin):
     def apply(self):
         """ XXX """
         mail = MIMEText(self.body)
-        mail['From'] = "mlempen@raptus.com" #XXX - not defined at the moment
         mail['To'] = self.to
         mail['Subject'] = self.subject
         smtpUtil = getUtility(ISmtpServerUtil)
