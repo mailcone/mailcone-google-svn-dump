@@ -2,6 +2,8 @@ import grok
 
 from datetime import datetime
 
+from zope.component import getUtility
+
 from mailfilter.app import MailfilterApp
 from mailfilter.interfaces import (
     IRuleSet, 
@@ -9,6 +11,7 @@ from mailfilter.interfaces import (
     IRule, 
     IMailfilterApp,
     IDatabaseSettings,
+    ISmtpServerUtil
 )
 from mailfilter.contents import RuleSet, Rule
 
@@ -39,6 +42,29 @@ class EditDbSettings(grok.EditForm):
         """ XXX"""
         self.applyData(self.context, **data)
 
+class EditSmtpSettings(grok.EditForm):
+    """ XXX """
+    grok.context(ISmtpServerUtil)
+    form_fields = grok.AutoFields(ISmtpServerUtil)
+    grok.require('mailfilter.manageUsers')
+    label = "Edit smtp server configurations"
+    
+    @grok.action('save', name='saveSmtpSettings')
+    def save(self, **data):
+        """ XXX"""
+        self.applyData(self.context, **data)
+
+# XXX - maybe in a future version
+#    @grok.action('send test mail', name='sendTestMail')
+#    def sendTestMail(self, **data):
+#        """ save data and send a test mail with given settings """
+#        self.save(**data)       
+#        mail = MIMEText("This is a testmail from mailcone application.")
+#        mail['To'] = data['form.to']
+#        mail['Subject'] = 'Subject'
+#        su = getUtility(ISmtpServerUtil)
+#        su.send(mail)
+        
 #
 # RuleSet specific forms
 #

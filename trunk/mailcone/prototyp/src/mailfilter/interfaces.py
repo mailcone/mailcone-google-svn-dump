@@ -324,10 +324,11 @@ class IRule(Interface):
 
 class ISmtpServerUtil(Interface):
     """ XXX """
-    host = interface.Attribute('host')
-    user = interface.Attribute('user')
-    passwd = interface.Attribute('passwd')
-    authrequeried = interface.Attribute('authrequeried')
+    host = schema.TextLine(title=u'Host', required=True)
+    email = schema.TextLine(title=u'Email address', required=True)
+    authrequeried = schema.Bool(title=u'Authentication required', required=False)
+    user = schema.TextLine(title=u'Smtp user', required=False)
+    passwd = schema.Password(title=u'Password', required=False)
 
     def send(mail):
         """ send given mail obj over configured smtp host

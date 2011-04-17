@@ -213,3 +213,10 @@ td.buttons {
 .floatLeftTestmailLink {
 	text-align:right;
 }
+
+.messageBox {
+	border: 1px solid #006600;
+	background-color: #00AA00;
+	margin-top: 10px;
+    padding: 5px;
+}
