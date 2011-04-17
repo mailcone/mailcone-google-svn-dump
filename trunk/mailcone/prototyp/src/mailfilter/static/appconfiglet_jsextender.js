@@ -25,6 +25,15 @@ $('#AppSettings').live('click', function(e){
 	$('#settingTabResultContainer').load($(this).attr('href') + ' form');
 });
 
+$('#DatabaseSettings').live('click', function(e){
+	e.preventDefault();
+	$('#tabs').find('a').each(function(){
+		$(this).removeClass('activeTab');
+	});
+	$(this).addClass('activeTab');
+	$('#settingTabResultContainer').load($(this).attr('href') + ' #tabContent');
+});
+
 // XXX - should be moved to mfa_core_action
 $('#ActionSettings').live('click', function(e){
 	e.preventDefault();

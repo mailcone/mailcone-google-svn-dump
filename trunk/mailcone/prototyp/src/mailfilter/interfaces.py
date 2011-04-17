@@ -9,6 +9,7 @@ from zope.browser.interfaces import ITerms
 from zope.component import getUtility
 
 class IMailfilterApp(Interface):
+    """ XXX """
     title = schema.TextLine(title=u'Title', required=True)
     default_mail = schema.TextLine(title=u'Default mailaddress', required=False)
     
@@ -23,6 +24,15 @@ class IMailfilterApp(Interface):
             delete customer from app folder
             param: customer contains id of to delete object 
         """
+
+class IDatabaseSettings(Interface):
+    """ Interface define setting properties for database connection """
+    driver = schema.TextLine(title=u'Driver', required=True)
+#    user = schema.TextLine(title=u'User', required=False)
+#    passwd = schema.Password(title=u'Password', required=False)
+#    host = schema.TextLine(title=u'Host', required=True)
+#    port = schema.TextLine(title=u'Port', required=True)
+#    dbName = schema.TextLine(title=u'Database name', required=True)
         
 class ISearchableContent(Interface):
     """ Interface for content models, contract used for indexing """
