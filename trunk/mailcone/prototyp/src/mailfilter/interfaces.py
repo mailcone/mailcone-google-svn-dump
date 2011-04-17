@@ -92,6 +92,17 @@ class ISettingConfiglet(Interface):
     title = interface.Attribute('title')
     url = interface.Attribute('url')
 
+# XXX - move to mfa_core_filter
+# XXX - not finished yet
+class IFilterSettings(ISettingConfiglet):
+    """ XXX """
+    settingObjects = interface.Attribute('settingObjects')
+
+# XXX - move to mfa_core_action
+class IActionSettingConfiglet(ISettingConfiglet):
+    """ XXX """
+    settingObjects = interface.Attribute('settingObjects')
+
 class IRuleContainer(Interface):
     """ Marker interface to provide rules as subcontents """
 
