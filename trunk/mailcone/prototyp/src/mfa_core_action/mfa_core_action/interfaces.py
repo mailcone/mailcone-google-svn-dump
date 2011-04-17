@@ -116,3 +116,9 @@ class ActionMatchTypesTerms(grok.MultiAdapter):
         
     def getValue(self, token):
         return token
+    
+class IActionSettings(Interface):
+    """ XXX - not finished yet """
+    
+class IActionSettingsManager(Interface):
+    """ XXX - not finished yet """

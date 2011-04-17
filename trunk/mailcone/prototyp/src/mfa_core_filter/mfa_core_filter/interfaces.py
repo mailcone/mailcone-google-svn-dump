@@ -187,3 +187,9 @@ class MailTerms(grok.MultiAdapter):
         
     def getValue(self, token):
         return token
+
+class IFilterSettings(Interface):
+    """ XXX - not finished yet """
+    
+class IFilterSettingsManager(Interface):
+    """ XXX - not finished yet """

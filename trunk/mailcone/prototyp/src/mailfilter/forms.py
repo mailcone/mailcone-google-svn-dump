@@ -3,7 +3,13 @@ import grok
 from datetime import datetime
 
 from mailfilter.app import MailfilterApp
-from mailfilter.interfaces import IRuleSet, IRuleContainer, IRule, IMailfilterApp
+from mailfilter.interfaces import (
+    IRuleSet, 
+    IRuleContainer, 
+    IRule, 
+    IMailfilterApp,
+    IDatabaseSettings,
+)
 from mailfilter.contents import RuleSet, Rule
 
 #
@@ -17,6 +23,18 @@ class EditAppSettings(grok.EditForm):
     label = "Edit app configurations"
     
     @grok.action('save', name='saveAppSettings')
+    def save(self, **data):
+        """ XXX"""
+        self.applyData(self.context, **data)
+
+class EditDbSettings(grok.EditForm):
+    """ XXX """
+    grok.context(MailfilterApp)
+    form_fields = grok.AutoFields(IDatabaseSettings)
+    grok.require('mailfilter.manageUsers')
+    label = "Edit database configurations"
+    
+    @grok.action('save', name='saveDatabaseSettings')
     def save(self, **data):
         """ XXX"""
         self.applyData(self.context, **data)

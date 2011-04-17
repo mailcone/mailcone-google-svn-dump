@@ -41,6 +41,15 @@ class AppSettingConfiglet(grok.GlobalUtility):
     title = 'app' # defines link content
     url = 'appSettings'
 
+class DatabaseSettingConfiglet(grok.GlobalUtility):
+    """ XXX """
+    grok.implements(ISettingConfiglet)
+    grok.name('DatabaseSettings')
+    
+    id = 'DatabaseSettings' # defines link id
+    title = 'database' # defines link content
+    url = 'databaseSettings'
+
 #XXX - should be moved to mfa_core_filter
 class FilterSettingConfiglet(grok.GlobalUtility):
     """ XXX """

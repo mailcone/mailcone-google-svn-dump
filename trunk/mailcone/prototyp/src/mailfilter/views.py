@@ -173,6 +173,28 @@ class AppSettingConfigletViewlet(grok.Viewlet):
     def render(self):
         return self.form.render()
 
+class DatabaseSettingConfigletView(grok.View):
+    """ Provide configlet for app settings """
+    grok.context(MailfilterApp)
+    grok.name('databaseSettings')
+    grok.template('master')
+    grok.require('mailfilter.manageUsers')
+
+class DatabaseSettingConfigletViewlet(grok.Viewlet):
+    """ Provide viewlet for AppSettingConfigletView """
+    grok.viewletmanager(Main)
+    grok.context(MailfilterApp)
+    grok.view(DatabaseSettingConfigletView)
+    grok.template('db_settings')
+
+# XXX - not implemented yet
+#    def update(self):
+#        self.form = getMultiAdapter((self.context, self.request), name='editdbsettings')
+#        self.form.update_form()
+
+#    def render(self):
+#        return self.form.render()
+
 #XXX - move to mfa_core_filter
 class FilterSettingConfigletView(grok.View):
     """ Provide configlet for app settings """
