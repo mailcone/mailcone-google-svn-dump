@@ -68,6 +68,9 @@ class IFilterManager(Interface):
             return a dict of all registered filterType utils - dict provides keys 
             (title and url), the given context must be a view object 
         """
+        
+    def listFilterSettings(self):
+        """ XXX """
 
 class ISimpleFilterOperator(Interface):
     """ XXX """

@@ -27,6 +27,11 @@ class IActionType(Interface):
     """ Interface for action type """
     title = interface.Attribute('title')
     addFormName = interface.Attribute('addFormName')
+    
+    def getSettingObject(self):
+        """ XXX """
+    
+    # XXX - start here - setting must be defined and create if not there
 
 class IActionContainer(Interface):
     """ Marker interface to provide action as subcontents """
@@ -65,6 +70,9 @@ class IActionManager(Interface):
             return a dict of all registered filterType utils - dict provides keys 
             (title and url), the context must be a view object
         """
+    
+    def listActionSettings(self):
+        """ XXX """
 
 class IActionMatchType(Interface):
     """ Interface for match types """

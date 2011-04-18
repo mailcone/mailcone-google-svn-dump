@@ -6,7 +6,12 @@ from mailfilter.resource import rulesetJsExtender
 from mailfilter.interfaces import IControlPanelJSExtention
 from mfa_core_action.interfaces import IActionType
 
-from mfa_writelogaction.interfaces import ILogfileManager, ILogfileUtil, ILoglevelManager, ILoglevelUtil
+from mfa_writelogaction.interfaces import ILogfileManager, ILogfileUtil, ILoglevelManager, ILoglevelUtil, IWriteLogActionSettingObject
+from mfa_writelogaction.settings import WirteLogActionSettingObject
+
+# catalog stuff
+from hurry.query.interfaces import IQuery
+from hurry.query import set, Eq, And
 
 class WrtieLogActionType(grok.GlobalUtility):
     """ Utility provide action type write log for filter manager """
@@ -15,6 +20,17 @@ class WrtieLogActionType(grok.GlobalUtility):
     
     title = 'write log'
     addFormName = 'addWriteLogAction'
+    
+    def getSettingObject(self):
+        """ XXX """
+        query = getUtility(IQuery)
+        result = query.searchResults(set.AnyOf(('catalog', 'implements'), [IWriteLogActionSettingObject.__identifier__,]))
+        if result.__len__() == 0:
+            container = grok.getApplication()
+            settingObj = WirteLogActionSettingObject()
+            container[settingObj.id] = settingObj
+            return settingObj
+        return [obj for obj in result][0]
     
 class WrtieLogActionJSExtender(grok.GlobalUtility):    
     """ XXX - test"""

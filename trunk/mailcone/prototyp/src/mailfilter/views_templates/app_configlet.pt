@@ -13,7 +13,7 @@
 				<a id="#" href="#" 
 				   tal:attributes="href python: view.application_url(configlet['url']);
 				                   id python: configlet['id']">
-					<span tal:content="python: configlet['title']" />
+					<span tal:content="python: configlet['tab']" />
 				</a>
 			</li>
 		</ul>

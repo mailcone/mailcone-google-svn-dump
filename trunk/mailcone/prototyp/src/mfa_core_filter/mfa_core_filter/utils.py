@@ -41,6 +41,11 @@ class FilterManager(grok.GlobalUtility):
         filterUtils = getUtilitiesFor(IFilterType)
         return [{'title':util[1].title,'url':context.url(util[1].addFormName)} for util in filterUtils]
 
+    def listFilterSettings(self):
+        """ XXX """
+        filterUtils = getUtilitiesFor(IFilterType)
+        return [{'title':util[1].title,'settingObj':util[1].getSettingObject()} for util in filterUtils]
+
 class SimpleFilterOperatorManager(grok.GlobalUtility):
     """ XXX """
     grok.implements(ISimpleFilterOperatorManager)

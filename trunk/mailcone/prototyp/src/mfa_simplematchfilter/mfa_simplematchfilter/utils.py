@@ -14,6 +14,10 @@ class SimpleMatchFilterType(grok.GlobalUtility):
     title = 'simple match'
     addFormName = 'addSimpleMatchFilter'
     
+    def getSettingObject(self):
+        """ XXX """
+        pass
+    
 class SimpleMatchFilterJSExtender(grok.GlobalUtility):    
     """ XXX - test"""
     grok.implements(IControlPanelJSExtention)

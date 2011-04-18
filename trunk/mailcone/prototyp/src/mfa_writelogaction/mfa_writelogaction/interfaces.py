@@ -121,3 +121,9 @@ class IWriteLogAction(Interface):
                              source=Loglevels(),
                              required=True)
     logmessage = schema.TextLine(title=u'log message', required=True)
+
+# XXX - not finished yet - just for test
+class IWriteLogActionSettingObject(Interface):
+    """ XXX """
+    
+    logfile = schema.TextLine(title=u'Logfile name', required=True)

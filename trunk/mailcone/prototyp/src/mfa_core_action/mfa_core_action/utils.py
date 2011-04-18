@@ -24,6 +24,11 @@ class ActionManager(grok.GlobalUtility):
         actionUtils = getUtilitiesFor(IActionType)
         return [{'title':util[1].title,'url':context.url(util[1].addFormName)} for util in actionUtils]
 
+    def listActionSettings(self):
+        """ XXX """
+        actionUtils = getUtilitiesFor(IActionType)
+        return [{'title':util[1].title,'settingObj':util[1].getSettingObject()} for util in actionUtils]
+
 class ActionJSExtender(grok.GlobalUtility):    
     """ XXX """
     grok.implements(IControlPanelJSExtention)

@@ -13,6 +13,10 @@ class PythonCodeFilterType(grok.GlobalUtility):
     title = 'python code'
     addFormName = 'addPythonFilter'
     
+    def getSettingObject(self):
+        """ XXX """
+        pass
+    
 class PythonCodeFilterJSExtender(grok.GlobalUtility):    
     """ XXX - test"""
     grok.implements(IControlPanelJSExtention)
