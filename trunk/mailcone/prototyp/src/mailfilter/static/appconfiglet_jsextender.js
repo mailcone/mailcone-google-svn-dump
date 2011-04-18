@@ -54,7 +54,7 @@ $('#ActionSettings').live('click', function(e){
 	});
 	$(this).addClass('activeTab');
 	// XXX - will be not a form later
-	$('#settingTabResultContainer').load($(this).attr('href') + ' form');
+	$('#settingTabResultContainer').load($(this).attr('href') + ' #tabContent');
 });
 
 // XXX - should be moved to mfa_core_filter
@@ -68,7 +68,7 @@ $('#FilterSettings').live('click', function(e){
 	});
 	$(this).addClass('activeTab');
 	// XXX - will be not a form later
-	$('#settingTabResultContainer').load($(this).attr('href') + ' form');
+	$('#settingTabResultContainer').load($(this).attr('href') + ' #tabContent');
 });
 
 /*

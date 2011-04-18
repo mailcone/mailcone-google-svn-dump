@@ -5,7 +5,12 @@ from zope.traversing.api import getPath
 from zope.component import getUtility
 
 from mailfilter.smtpUtil import SmtpServerUtil
-from mailfilter.interfaces import IMailfilterApp, ISmtpServerUtil
+from mailfilter.configlets import FilterSettingConfiglet, ActionSettingConfiglet
+from mailfilter.interfaces import (
+    IMailfilterApp, 
+    ISmtpServerUtil,
+    ISettingConfiglet
+)
 from mailfilter import resource
 
 from zope.pluggableauth.authentication import PluggableAuthentication
@@ -27,6 +32,12 @@ class MailfilterApp(grok.Application, grok.Container):
         setup=setup_authentication,
         )
     grok.local_utility(SmtpServerUtil, provides=ISmtpServerUtil)
+    grok.local_utility(FilterSettingConfiglet, 
+                       provides=ISettingConfiglet, 
+                       name='FilterSettings')
+    grok.local_utility(ActionSettingConfiglet, 
+                       provides=ISettingConfiglet, 
+                       name='ActionSettings')
     
     title = None
     default_mail = None
@@ -46,6 +57,14 @@ class MailfilterApp(grok.Application, grok.Container):
     grok.traversable('smtpSettings')
     def smtpSettings(self):
         return getUtility(ISmtpServerUtil)
+
+    grok.traversable('filterSettings')
+    def filterSettings(self):
+        return getUtility(ISettingConfiglet, 'FilterSettings')
+    
+    grok.traversable('actionSettings')
+    def actionSettings(self):
+        return getUtility(ISettingConfiglet, 'ActionSettings')
         
     grok.traversable('userConfiglet')
     def userConfiglet(self):

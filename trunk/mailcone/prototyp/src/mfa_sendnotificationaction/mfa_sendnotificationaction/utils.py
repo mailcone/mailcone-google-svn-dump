@@ -13,6 +13,10 @@ class SendNotificationActionType(grok.GlobalUtility):
     title = 'send notification'
     addFormName = 'addSendNotificationAction'
     
+    def getSettingObject(self):
+        """ XXX """
+        pass
+    
 class SendNotificationActionJSExtender(grok.GlobalUtility):    
     """ XXX - test"""
     grok.implements(IControlPanelJSExtention)

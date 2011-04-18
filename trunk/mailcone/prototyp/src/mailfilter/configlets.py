@@ -1,7 +1,13 @@
 # grok stuff
 import grok
 
-from mailfilter.interfaces import IConfiglet, ISettingConfiglet
+from mailfilter.interfaces import (
+    IConfiglet, 
+    ISettingConfiglet,
+    ISettingContainer, 
+    IFilterSettingConfiglet, 
+    IActionSettingConfiglet
+)
 
 class RuleSetConfiglet(grok.GlobalUtility):
     """ Utility provide a gui to manage rule sets """
@@ -38,7 +44,8 @@ class AppSettingConfiglet(grok.GlobalUtility):
     grok.name('AppSettings')
     
     id = 'AppSettings' # defines link id
-    title = 'app' # defines link content
+    tab = 'app' # defines link content
+    title = 'App settings'
     url = 'appSettings'
 
 class DatabaseSettingConfiglet(grok.GlobalUtility):
@@ -47,7 +54,8 @@ class DatabaseSettingConfiglet(grok.GlobalUtility):
     grok.name('DatabaseSettings')
     
     id = 'DatabaseSettings' # defines link id
-    title = 'database' # defines link content
+    tab = 'database' # defines link content
+    title = 'Database settings'
     url = 'databaseSettings'
 
 class SmtpSettingConfiglet(grok.GlobalUtility):
@@ -56,25 +64,30 @@ class SmtpSettingConfiglet(grok.GlobalUtility):
     grok.name('SmtpSettings')
     
     id = 'SmtpSettings' # defines link id
-    title = 'smtp' # defines link content
+    tab = 'smtp' # defines link content
+    title = 'Smpt server settings'
     url = 'smtpSettings'
 
 #XXX - should be moved to mfa_core_filter
-class FilterSettingConfiglet(grok.GlobalUtility):
+class FilterSettingConfiglet(grok.LocalUtility):
     """ XXX """
-    grok.implements(ISettingConfiglet)
+    grok.implements(IFilterSettingConfiglet, ISettingContainer, ISettingConfiglet)
+    grok.provides(ISettingConfiglet)
     grok.name('FilterSettings')
     
     id = 'FilterSettings' # defines link id
-    title = 'filters' # defines link content
+    tab = 'filters'
+    title = 'Filter settings' # defines link content
     url = 'filterSettings'
 
 #XXX - should be moved to mfa_core_action    
-class ActionSettingConfiglet(grok.GlobalUtility):
+class ActionSettingConfiglet(grok.LocalUtility):
     """ XXX """
-    grok.implements(IActionSettingConfiglet)
+    grok.implements(IActionSettingConfiglet, ISettingContainer, ISettingConfiglet)
+    grok.provides(ISettingConfiglet)
     grok.name('ActionSettings')
     
     id = 'ActionSettings' # defines link id
-    title = 'actions' # defines link content
+    tab = 'actions' # defines link content
+    title = 'Action settings'
     url = 'actionSettings'

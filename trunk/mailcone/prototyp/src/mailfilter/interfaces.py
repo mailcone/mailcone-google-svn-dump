@@ -42,7 +42,6 @@ class ISearchableContent(Interface):
     implements = interface.Attribute('implements')
     sortNr = interface.Attribute('sortNr')
 
-
 class IFilterMailsUtility(Interface):
     """ XXX - only for testing, must be moved maybe... - and if not renamed """
 
@@ -81,6 +80,7 @@ class IControlPanelJSExtention(Interface):
 class IConfiglet(Interface):
     """ marker interface for a configlet """    
 
+    # XXX - should also have attribute tab like ISettingConfiglet
     id = interface.Attribute('id')
     title = interface.Attribute('title')
     url = interface.Attribute('url')
@@ -89,19 +89,15 @@ class ISettingConfiglet(Interface):
     """ marker interface for a setting configlet """
     
     id = interface.Attribute('id')
+    tab = interface.Attribute('tab')
     title = interface.Attribute('title')
     url = interface.Attribute('url')
-
-# XXX - move to mfa_core_filter
-# XXX - not finished yet
-class IFilterSettings(ISettingConfiglet):
-    """ XXX """
-    settingObjects = interface.Attribute('settingObjects')
-
-# XXX - move to mfa_core_action
-class IActionSettingConfiglet(ISettingConfiglet):
-    """ XXX """
-    settingObjects = interface.Attribute('settingObjects')
+    
+class IFilterSettingConfiglet(Interface):
+    """ Marker interface for filter setting configlet """
+    
+class IActionSettingConfiglet(Interface):
+    """ Marker interface for filter setting configlet """
 
 class IRuleContainer(Interface):
     """ Marker interface to provide rules as subcontents """
@@ -344,3 +340,22 @@ class ISmtpServerUtil(Interface):
     def send(mail):
         """ send given mail obj over configured smtp host
         given mail must be a MIMEText object"""
+
+class IBaseSettingObject(Interface):
+    """ XXX """
+    
+    id = interface.Attribute('id')
+    title = interface.Attribute('title')
+    form_name = interface.Attribute('form_name')
+
+    def getTitle():
+        """ XXX """
+    
+    def getFormName():
+        """ XXX """
+
+class IActionSettingObject(IBaseSettingObject):
+    """ XXX """
+
+class IFilterSettingObject(IBaseSettingObject):
+    """ XXX """

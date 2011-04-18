@@ -12,6 +12,10 @@ class ComplexMatchFilterType(grok.GlobalUtility):
     
     title = 'complex match'
     addFormName = 'addComplexMatchFilter'
+
+    def getSettingObject(self):
+        """ XXX """
+        pass
     
 class ComplexMatchFilterJSExtender(grok.GlobalUtility):    
     """ XXX - test"""

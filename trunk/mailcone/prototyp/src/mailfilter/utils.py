@@ -48,7 +48,7 @@ class SettingConfigletManager(grok.GlobalUtility):
     def listConfiglets(self):
         """ XXX """
         return [{'id' :configlet[1].id, 
-                 'title' : configlet[1].title, 
+                 'tab' : configlet[1].tab, 
                  'url' :configlet[1].url} for configlet in self._getConfiglets()]
 
 class RuleJSExtenerManager(grok.GlobalUtility):
