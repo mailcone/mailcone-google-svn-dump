@@ -6,7 +6,7 @@ from zope import event, lifecycleevent
 from mailfilter.app import SearchableContentMixin
 from mailfilter.interfaces import ISearchableContent
 from mfa_core_action.interfaces import IAction, IActionType, IActionContainer
-from mfa_writelogaction.interfaces import IWriteLogAction
+from mfa_writelogaction.interfaces import IWriteLogAction, ILogfile, IWriteLogActionSettingObject
 
 class WriteLogAction(grok.Model, SearchableContentMixin):
     """ Provide a action for write messages in logfiles """
@@ -52,3 +52,21 @@ class WriteLogAction(grok.Model, SearchableContentMixin):
         """ XXX """
         #XXX not implemented yet
         pass
+
+class Logfile(grok.Container, SearchableContentMixin):
+    """ Define a logfile - used by WriteLogAction """
+    grok.context(IWriteLogActionSettingObject)
+    grok.implements(ILogfile, ISearchableContent)
+    
+    id = None
+    name = None
+    logfile = None
+    logpath = None
+    
+    def __init__(self, name, logfile, filepath):
+        """ Constructor """
+        super(Logfile, self).__init__()
+        self.id = name.replace(' ', '-') # XXX - really simple, could be done better
+        self.name = name
+        self.logfile = logfile
+        self.filepath = filepath

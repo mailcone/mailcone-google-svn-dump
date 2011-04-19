@@ -3,8 +3,7 @@ import grok
 
 from mailfilter.interfaces import (
     IConfiglet, 
-    ISettingConfiglet,
-    ISettingContainer, 
+    ISettingConfiglet, 
     IFilterSettingConfiglet, 
     IActionSettingConfiglet
 )
@@ -71,7 +70,7 @@ class SmtpSettingConfiglet(grok.GlobalUtility):
 #XXX - should be moved to mfa_core_filter
 class FilterSettingConfiglet(grok.LocalUtility):
     """ XXX """
-    grok.implements(IFilterSettingConfiglet, ISettingContainer, ISettingConfiglet)
+    grok.implements(IFilterSettingConfiglet, ISettingConfiglet)
     grok.provides(ISettingConfiglet)
     grok.name('FilterSettings')
     
@@ -83,7 +82,7 @@ class FilterSettingConfiglet(grok.LocalUtility):
 #XXX - should be moved to mfa_core_action    
 class ActionSettingConfiglet(grok.LocalUtility):
     """ XXX """
-    grok.implements(IActionSettingConfiglet, ISettingContainer, ISettingConfiglet)
+    grok.implements(IActionSettingConfiglet, ISettingConfiglet)
     grok.provides(ISettingConfiglet)
     grok.name('ActionSettings')
     

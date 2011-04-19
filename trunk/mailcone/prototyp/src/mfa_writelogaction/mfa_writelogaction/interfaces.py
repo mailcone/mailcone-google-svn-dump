@@ -10,20 +10,21 @@ from zope.component import getUtility
 
 from mfa_core_action.interfaces import ActionMatchTypes
 
-class ILogfileUtil(Interface):
+class ILogfile(Interface):
     """ XXX """
     
-    name = interface.Attribute('name')
-    logfile = interface.Attribute('logfile')
-    filepath =  interface.Attribute('filepath')
+    id = interface.Attribute('id')
+    name = schema.TextLine(title=u'Title', required=True)
+    logfile = schema.TextLine(title=u'logfile', required=True)
+    filepath =  schema.TextLine(title=u'filepath', required=True)
 
 class ILogfileManager(Interface):
     """ XXX """
     
-    def getLogfileKeys():
+    def getLogfileIds():
         """ XXX """
     
-    def getLogfileUtil(id):
+    def getLogfileById(id):
         """ XXX """
 
 class Logfiles(object):
@@ -55,7 +56,7 @@ class LogfileTerms(grok.MultiAdapter):
     
     def getTerm(self, value):
         manager = getUtility(ILogfileManager)
-        util = manager.getLogfileUtil(value) 
+        util = manager.getLogfile(value) 
         return SimpleTerm(value, value, util.name)
         
     def getValue(self, token):
@@ -122,8 +123,15 @@ class IWriteLogAction(Interface):
                              required=True)
     logmessage = schema.TextLine(title=u'log message', required=True)
 
-# XXX - not finished yet - just for test
 class IWriteLogActionSettingObject(Interface):
-    """ XXX """
+    """ Marker interface for write log action settings """
     
-    logfile = schema.TextLine(title=u'Logfile name', required=True)
+    id = interface.Attribute('id')
+    title = interface.Attribute('title')
+    form_name = interface.Attribute('form_name')
+
+    def getLogfiles(self):
+        """ return all logfiles registered in WriteLogActionSettingObject """
+    
+    def delLogfile(self, obj):
+        """ delete give obj """
