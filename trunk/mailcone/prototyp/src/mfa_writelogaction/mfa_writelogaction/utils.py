@@ -6,7 +6,7 @@ from mailfilter.resource import rulesetJsExtender
 from mailfilter.interfaces import IControlPanelJSExtention
 from mfa_core_action.interfaces import IActionType
 
-from mfa_writelogaction.interfaces import ILogfileManager, ILogfileUtil, ILoglevelManager, ILoglevelUtil, IWriteLogActionSettingObject
+from mfa_writelogaction.interfaces import ILogfileManager, ILogfile, ILoglevelManager, ILoglevelUtil, IWriteLogActionSettingObject
 from mfa_writelogaction.settings import WirteLogActionSettingObject
 
 # catalog stuff
@@ -52,12 +52,16 @@ class LogfileManager(grok.GlobalUtility):
     
     def getLogfileKeys(self):
         """ XXX """
-        sources = getUtilitiesFor(ILogfileUtil)
-        return [source[0] for source in sources]
+        query = getUtility(IQuery)
+        logfiles = query.searchResults(set.AnyOf(('catalog', 'implements'), [ILogfile.__identifier__,]))
+        return [logfile.id for logfile in logfiles]
 
     def getLogfileUtil(self,id):
         """ XXX """
-        return getUtility(ILogfileUtil, id)
+        query = getUtility(IQuery)
+        logfiles = query.searchResults(set.AnyOf(('catalog', 'implements'), [ILogfile.__identifier__,]) &
+                                       Eq(('catalog', 'id'), id))
+        return [file for file in logfiles][0]
     
 class LoglevelManager(grok.GlobalUtility):
     """ XXX """
