@@ -50,13 +50,13 @@ class LogfileManager(grok.GlobalUtility):
     """ XXX """
     grok.implements(ILogfileManager)
     
-    def getLogfileKeys(self):
+    def getLogfileIds(self):
         """ XXX """
         query = getUtility(IQuery)
         logfiles = query.searchResults(set.AnyOf(('catalog', 'implements'), [ILogfile.__identifier__,]))
         return [logfile.id for logfile in logfiles]
 
-    def getLogfileUtil(self,id):
+    def getLogfileById(self,id):
         """ XXX """
         query = getUtility(IQuery)
         logfiles = query.searchResults(set.AnyOf(('catalog', 'implements'), [ILogfile.__identifier__,]) &

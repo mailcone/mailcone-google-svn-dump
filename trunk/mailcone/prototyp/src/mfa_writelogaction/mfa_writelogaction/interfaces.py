@@ -36,7 +36,7 @@ class Logfiles(object):
     @property
     def _terms(self):
         manager = getUtility(ILogfileManager)
-        return manager.getLogfileKeys()
+        return manager.getLogfileIds()
 
     def __iter__(self):
         return self._terms
@@ -56,7 +56,7 @@ class LogfileTerms(grok.MultiAdapter):
     
     def getTerm(self, value):
         manager = getUtility(ILogfileManager)
-        util = manager.getLogfile(value) 
+        util = manager.getLogfileById(value) 
         return SimpleTerm(value, value, util.name)
         
     def getValue(self, token):
