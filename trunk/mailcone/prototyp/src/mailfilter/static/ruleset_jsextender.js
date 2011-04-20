@@ -204,7 +204,15 @@ $('#addRuleSetButton').live('click', function(e){
 		url: $(form).attr('action'),  
 		data: dataString,
 		success: function(data){
-	        $('#RuleSetConfiglet').click();
+	        var response = data;
+	        var rulesetConfigletLink = $('#RuleSetConfiglet').attr('href');
+	        $('#columnRulesetSelector').load(rulesetConfigletLink + ' #columnRulesetSelector',function(){	
+				$('input[name=selectRulesetButton]').addClass('hidden');
+				sortableItems('#ruleContainer', '.rule-wrapper', '.ruleLink');
+				hideSortLinks('#ruleContainer', '.rule');
+				$('#columnRulesetSelector').find('option:last').attr('selected', 'selected');
+			});
+	        $('#ruleSetContainer').html($(response).find('#rulesetContent').html());
 	    }
 	});
 });
