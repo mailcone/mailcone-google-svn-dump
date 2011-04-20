@@ -2,6 +2,8 @@
     Utils for rule types
 """
 import grok
+from datetime import datetime
+from megrok import rdb
 
 from zope.component import getUtility
 from mfa_core_action.interfaces import IActionMatchType
@@ -18,6 +20,15 @@ class RuleType(object):
         """ XXX """
         self.mails = mails
         self.rule = rule
+    
+    def markMatchedMails(self, matchedMails):
+        """ XXX """
+        for mail in matchedMails:
+            session = rdb.Session()
+            mail.matched = True
+            mail.match_on = datetime.now()
+            session.add(mail)
+            session.flush()
 
 class AndCombination(RuleType, grok.GlobalUtility):
     """ XXX """
@@ -33,6 +44,7 @@ class AndCombination(RuleType, grok.GlobalUtility):
         for action in self.rule.getActions():
             mtUtil = getUtility(IActionMatchType, action.match)
             mtUtil.apply(action, executeMails)
+        self.markMatchedMails(executeMails)
 
 class OrCombination(RuleType, grok.GlobalUtility):
     """ XXX """
@@ -45,6 +57,7 @@ class OrCombination(RuleType, grok.GlobalUtility):
         executeMails = []
         for filter in self.rule.getFilters():
             executeMails.extend(filter.apply(self.mails))
-        if executeMails:
-            return True
-        return False
+        for action in self.rule.getActions():
+            mtUtil = getUtility(IActionMatchType, action.match)
+            mtUtil.apply(action, executeMails)
+        self.markMatchedMails(executeMails)
