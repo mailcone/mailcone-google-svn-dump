@@ -28,4 +28,5 @@ class ActionMatchTypeNotMatch(ActionMatchType, grok.GlobalUtility):
     
     def apply(self, action, resultMails):
         """ XXX """
-        pass
+        if not resultMails:
+            action.apply()

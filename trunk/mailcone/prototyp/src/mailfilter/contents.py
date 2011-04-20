@@ -327,5 +327,5 @@ class Mail(rdb.Model):
     subject = Column ('subject', String(250))
     content = Column ('content', Text)
     path_to_attachments = Column ('path_to_attachments', Text)
-    #matched = Column('matched', Boolean)
-    #match_on = Column ('match_on', Date)
+    matched = Column('matched', Boolean)
+    match_on = Column ('match_on', Date)

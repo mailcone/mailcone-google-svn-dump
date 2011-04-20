@@ -165,8 +165,7 @@ class FilterMailsUtility(grok.GlobalUtility):
     def _getMails(self):
         """ XXX """
         session = rdb.Session()
-        #XXX take only not matched mails
-        self.mails = session.query(Mail).all()
+        session.query(Mail).filter_by(matched=False).all()
     
     def _getCustomers(self):
         """ XXX """
