@@ -1,12 +1,15 @@
 import grok
 
+import logging
+import os
+
 from zope.component import getUtility
 from zope import event, lifecycleevent
 
 from mailfilter.app import SearchableContentMixin
 from mailfilter.interfaces import ISearchableContent
 from mfa_core_action.interfaces import IAction, IActionType, IActionContainer
-from mfa_writelogaction.interfaces import IWriteLogAction, ILogfile, IWriteLogActionSettingObject
+from mfa_writelogaction.interfaces import IWriteLogAction, ILogfile, IWriteLogActionSettingObject, ILogfileManager
 
 class WriteLogAction(grok.Model, SearchableContentMixin):
     """ Provide a action for write messages in logfiles """
@@ -50,8 +53,24 @@ class WriteLogAction(grok.Model, SearchableContentMixin):
     
     def apply(self):
         """ XXX """
-        #XXX not implemented yet
-        pass
+        manager = getUtility(ILogfileManager)
+        logObj = manager.getLogfileById(self.logfile) 
+
+        log = logging.getLogger (logObj.name)
+        log.setLevel (logging.INFO)
+        lformatter = logging.Formatter('%(process)d - %(asctime)s - %(name)s - %(levelname)s - %(message)s')
+        lhandler = logging.FileHandler(logObj.getLogfile())
+        lhandler.setFormatter(lformatter)
+        log.addHandler(lhandler)
+
+        #XXX - must be solved better           
+        if self.loglevel == 'info':
+            log.info(self.logmessage)
+        if self.loglevel == 'warning':
+            log.warning(self.logmessage)
+        if self.loglevel == 'error':
+            log.error(self.logmessage)
+
 
 class Logfile(grok.Container, SearchableContentMixin):
     """ Define a logfile - used by WriteLogAction """
@@ -70,3 +89,22 @@ class Logfile(grok.Container, SearchableContentMixin):
         self.name = name
         self.logfile = logfile
         self.filepath = filepath
+        
+    def getLogfile(self):
+        """ check if logfile exists return only path to logfile, 
+            else create logfile and return path """
+        file = ''
+        if self.logfile[-4:] != '.log':
+            file = self.logfile + '.log'
+        else:
+            file = self.logfile
+             
+        filepath = os.path.join (self.filepath, file)
+        if not os.path.isfile (filepath):
+            self.createLogfile(filepath)
+        return filepath
+        
+    def createLogfile(self, file):
+        """ XXX """
+        file = open (file, 'w')
+        file.close ()
