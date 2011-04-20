@@ -70,7 +70,9 @@ class WriteLogAction(grok.Model, SearchableContentMixin):
             log.warning(self.logmessage)
         if self.loglevel == 'error':
             log.error(self.logmessage)
-
+        
+        log.removeHandler(lhandler)    
+        lhandler.close()
 
 class Logfile(grok.Container, SearchableContentMixin):
     """ Define a logfile - used by WriteLogAction """
