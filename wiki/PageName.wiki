@@ -2,8 +2,8 @@
 
 = Roadmap =
 
-= Planned =
+== Planned ==
   * bla bla
 
-= Wishlist =
+== Wishlist ==
   * bla bla
