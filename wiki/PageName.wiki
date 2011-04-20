@@ -3,7 +3,16 @@
 = Roadmap =
 
 == Planned ==
-  * bla bla
+  * Cronjobs (in Zope instance)
+  * ZenOSS Plugin
+  * Database connection configuration
+  * Logo upload in App-Configuration
+  * List of not matched emails
+  * Listing of action in configuration
+  * Test facility for Rule Editor
+  * Documentation in this Wiki
+    * Installtion
+    * Key-Field descriptions
 
 == Wishlist ==
-  * bla bla
+  * Nagios Plugin
