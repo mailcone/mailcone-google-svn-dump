@@ -13,7 +13,7 @@ class SimpleFilterOperator(object):
     
     name = None #XXX - doc
     
-    def apply(self, condition, source):
+    def apply(self, filterCondition, source):
         """ XXX """
         pass
 
@@ -27,19 +27,19 @@ class SimpleFilterOperatorFuncBased(SimpleFilterOperator):
     
     funcName = None #XXX - doc
     
-    def apply(self, condition, source):
+    def apply(self, filterCondition, source):
         """ XXX """
         func = self._getFunction(source)
-        funcRes = self._callFunc(func, condition)
+        funcRes = self._callFunc(func, filterCondition)
         return funcRes
     
     def _getFunction(self, obj):
         """ XXX """
         return obj.__getattribute__(self.funcName)
 
-    def _callFunc(self, func, condition):
+    def _callFunc(self, func, filterCondition):
         """ XXX """
-        return func.__call__(condition)
+        return func.__call__(filterCondition)
 
 class SimpleFilterOperatorIs(SimpleFilterOperatorOperationBased, grok.GlobalUtility):
     """ XXX """
@@ -47,8 +47,8 @@ class SimpleFilterOperatorIs(SimpleFilterOperatorOperationBased, grok.GlobalUtil
     
     name = 'Is'
 
-    def apply(self, condition, source):
-        if condition is source:
+    def apply(self, filterCondition, source):
+        if filterCondition == source:
             return True
         return False
 
@@ -58,8 +58,8 @@ class SimpleFilterOperatorIsNot(SimpleFilterOperatorOperationBased, grok.GlobalU
     
     name = 'Is not'
     
-    def apply(self, condition, source):
-        if condition is not source:
+    def apply(self, filterCondition, source):
+        if filterCondition != source:
             return True
         return False 
 
@@ -70,9 +70,9 @@ class SimpleFilterOperatorContains(SimpleFilterOperatorFuncBased, grok.GlobalUti
     name = 'Contains'
     funcName = 'find'
 
-    def apply(self, condition, source):
+    def apply(self, filterCondition, source):
         """ XXX """
-        funcRes = super(SimpleFilterOperatorContains, self).apply(condition, source)
+        funcRes = super(SimpleFilterOperatorContains, self).apply(filterCondition, source)
         if funcRes != 0:
             return True
         return False
@@ -84,9 +84,9 @@ class SimpleFilterOperatorNotContains(SimpleFilterOperatorFuncBased, grok.Global
     name = 'Does not contains'
     funcName = 'find'
 
-    def apply(self, condition, source):
+    def apply(self, filterCondition, source):
         """ XXX """
-        funcRes = super(SimpleFilterOperatorContains, self).apply(condition, source)
+        funcRes = super(SimpleFilterOperatorContains, self).apply(filterCondition, source)
         if funcRes == 0:
             return True
         return False
@@ -98,9 +98,9 @@ class SimpleFilterOperatorBeginsWith(SimpleFilterOperatorFuncBased, grok.GlobalU
     name = 'Begins with'
     funcName = 'startswith'
 
-    def apply(self, condition, source):
+    def apply(self, filterCondition, source):
         """ XXX """
-        funcRes = super(SimpleFilterOperatorContains, self).apply(condition, source)
+        funcRes = super(SimpleFilterOperatorContains, self).apply(filterCondition, source)
         return funcRes
 
 class SimpleFilterOperatorEndsWith(SimpleFilterOperatorFuncBased, grok.GlobalUtility):
@@ -110,7 +110,7 @@ class SimpleFilterOperatorEndsWith(SimpleFilterOperatorFuncBased, grok.GlobalUti
     name = 'Ends with'
     funcName = 'endswith'
 
-    def apply(self, condition, source):
+    def apply(self, filterCondition, source):
         """ XXX """
-        funcRes = super(SimpleFilterOperatorContains, self).apply(condition, source)
+        funcRes = super(SimpleFilterOperatorContains, self).apply(filterCondition, source)
         return funcRes

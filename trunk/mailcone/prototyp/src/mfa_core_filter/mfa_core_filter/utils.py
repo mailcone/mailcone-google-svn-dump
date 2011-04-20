@@ -59,10 +59,10 @@ class SimpleFilterOperatorManager(grok.GlobalUtility):
         """ XXX """
         return getUtility(ISimpleFilterOperator, id)
 
-    def apply(self, operator, condition, source):
+    def apply(self, operator, filterCondition, source):
         """ XXX """
         operatorUtil = getUtility(ISimpleFilterOperator, operator)
-        return operatorUtil.apply(condition, source)
+        return operatorUtil.apply(filterCondition, source)
 
 #XXX move to mail package
 class MailSourceManager(grok.GlobalUtility):
