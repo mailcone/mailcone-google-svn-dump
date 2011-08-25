@@ -1,3 +1,0 @@
-[fanstatic.libraries]
-mfa_core_customer = mfa_core_customer.resource:library
-

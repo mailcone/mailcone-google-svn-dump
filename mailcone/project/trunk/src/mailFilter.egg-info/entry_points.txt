@@ -1,3 +1,0 @@
-[fanstatic.libraries]
-mailfilter = mailfilter.resource:library
-

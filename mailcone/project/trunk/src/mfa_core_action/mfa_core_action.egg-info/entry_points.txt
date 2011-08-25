@@ -1,3 +1,0 @@
-[fanstatic.libraries]
-mfa_core_action = mfa_core_action.resource:library
-
