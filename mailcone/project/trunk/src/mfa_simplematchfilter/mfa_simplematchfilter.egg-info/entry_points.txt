@@ -1,3 +1,0 @@
-[fanstatic.libraries]
-mfa_simplematchfilter = mfa_simplematchfilter.resource:library
-
