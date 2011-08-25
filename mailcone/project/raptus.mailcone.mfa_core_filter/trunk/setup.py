@@ -3,7 +3,7 @@ import sys, os
 
 version = '1.0'
 
-setup(name='mfa_writelogaction',
+setup(name='raptus.mailcone.mfa_core_filter',
       version=version,
       description="",
       long_description="""\
@@ -26,5 +26,5 @@ setup(name='mfa_writelogaction',
       ],
       entry_points={
           'fanstatic.libraries': [
-              'mfa_writelogaction = mfa_writelogaction.resource:library',
+              'mfa_core_filter = mfa_core_filter.resource:library',
           ]})

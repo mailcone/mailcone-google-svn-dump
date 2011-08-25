@@ -3,7 +3,7 @@ import sys, os
 
 version = '1.0'
 
-setup(name='mfa_core_action',
+setup(name='raptus.mailcone.mfa_simplematchfilter',
       version=version,
       description="",
       long_description="""\
@@ -26,5 +26,5 @@ setup(name='mfa_core_action',
       ],
       entry_points={
           'fanstatic.libraries': [
-              'mfa_core_action = mfa_core_action.resource:library',
+              'mfa_simplematchfilter = mfa_simplematchfilter.resource:library',
           ]})

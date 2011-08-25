@@ -3,7 +3,7 @@ import sys, os
 
 version = '1.0'
 
-setup(name='mfa_core_filter',
+setup(name='raptus.mailcone.mfa_core_auth',
       version=version,
       description="",
       long_description="""\
@@ -19,12 +19,10 @@ setup(name='mfa_core_filter',
       zip_safe=False,
       install_requires=[
           'mailfilter',
-          'zope.fanstatic',
           'zc.sourcefactory',
           #'mailgrokker',
           # -*- Extra requirements: -*-
       ],
-      entry_points={
-          'fanstatic.libraries': [
-              'mfa_core_filter = mfa_core_filter.resource:library',
-          ]})
+      entry_points="""\
+      
+      """)
