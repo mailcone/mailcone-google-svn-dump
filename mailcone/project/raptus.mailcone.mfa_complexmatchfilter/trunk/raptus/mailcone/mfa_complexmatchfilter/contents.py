@@ -7,7 +7,7 @@ from zope import event, lifecycleevent
 from raptus.mailcone.mailfilter.app import SearchableContentMixin
 from raptus.mailcone.mailfilter.interfaces import ISearchableContent
 from raptus.mailcone.mfa_core_filter.interfaces import IFilter, IFilterType, IFilterContainer, IMailSourceManager
-from from raptus.mailcone.mfa_complexmatchfilter.interfaces import IComplexMatchFilter
+from raptus.mailcone.mfa_complexmatchfilter.interfaces import IComplexMatchFilter
 
 
 class ComplexMatchFilter(grok.Model, SearchableContentMixin):
