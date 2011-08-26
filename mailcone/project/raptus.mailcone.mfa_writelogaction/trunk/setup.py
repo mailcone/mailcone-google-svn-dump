@@ -18,7 +18,7 @@ setup(name='raptus.mailcone.mfa_writelogaction',
       include_package_data=True,
       zip_safe=False,
       install_requires=[
-          'mailfilter',
+          'raptus.mailcone.mailfilter',
           'zope.fanstatic',
           'zc.sourcefactory',
           #'mailgrokker',
@@ -26,5 +26,5 @@ setup(name='raptus.mailcone.mfa_writelogaction',
       ],
       entry_points={
           'fanstatic.libraries': [
-              'mfa_writelogaction = mfa_writelogaction.resource:library',
+              'raptus.mailcone.mfa_writelogaction = raptus.mailcone.mfa_writelogaction.resource:library',
           ]})

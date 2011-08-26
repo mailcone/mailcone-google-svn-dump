@@ -18,7 +18,7 @@ setup(name='raptus.mailcone.mfa_core_auth',
       include_package_data=True,
       zip_safe=False,
       install_requires=[
-          'mailfilter',
+          'raptus.mailcone.mailfilter',
           'zc.sourcefactory',
           #'mailgrokker',
           # -*- Extra requirements: -*-
