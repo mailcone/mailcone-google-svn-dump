@@ -19,5 +19,8 @@ setup(name='raptus.mailcone.mailfilter',
       zip_safe=False,
       install_requires=[
           # -*- Extra requirements: -*-
+        'grok',
+        'grokui.admin',
+        'grokcore.startup',
       ],
       entry_points={})
