@@ -24,8 +24,12 @@ setup(name='raptus.mailcone.mailfilter',
         'grokcore.startup',
         'js.jquery',
         'js.jqueryui',
-        'megrok.rdb',
         'hurry.query',
         'hurry.jqueryui',
+        'megrok.rdb',
+        'megrok.resource',
+        'zc.catalog',
+        'zope.pluggableauth',
+        
       ],
       entry_points={})
