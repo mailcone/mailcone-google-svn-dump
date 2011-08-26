@@ -25,7 +25,7 @@ setup(name='raptus.mailcone.mailfilter',
         'js.jquery',
         'js.jqueryui',
         'megrok.rdb',
-        'hurry.jquery',
+        'hurry.query',
         'hurry.jqueryui',
       ],
       entry_points={})
