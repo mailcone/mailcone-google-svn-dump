@@ -9,11 +9,11 @@ from zope.traversing.api import getPath
 from hurry.query.interfaces import IQuery
 from hurry.query import set, Eq
 
-from mailfilter.interfaces import IRuleContainer, IRule, ISearchableContent
-from mfa_core_customer.interfaces import ICustomer
+from raptus.mailcone.mailfilter.interfaces import IRuleContainer, IRule, ISearchableContent
+from raptus.mailcone.mfa_core_customer.interfaces import ICustomer
 
 # mailfilter stuff
-from mailfilter.app import MailfilterApp, SearchableContentMixin
+from raptus.mailcone.mailfilter.app import MailfilterApp, SearchableContentMixin
 
 class Customer(grok.Container):
     """ Provide a container for customer specific rules """

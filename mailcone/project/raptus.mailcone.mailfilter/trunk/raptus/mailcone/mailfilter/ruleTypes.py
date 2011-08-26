@@ -6,8 +6,8 @@ from datetime import datetime
 from megrok import rdb
 
 from zope.component import getUtility
-from mfa_core_action.interfaces import IActionMatchType
-from mailfilter.interfaces import IRuleType
+from raptus.mailcone.mfa_core_action.interfaces import IActionMatchType
+from raptus.mailcone.mailfilter.interfaces import IRuleType
 
 class RuleType(object):
     """ Base object for rule types """

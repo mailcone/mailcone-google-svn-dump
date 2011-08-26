@@ -1,7 +1,7 @@
 import grok
 
-from mailfilter.app import SearchableContentMixin
-from mailfilter.interfaces import (
+from raptus.mailcone.mailfilter.app import SearchableContentMixin
+from raptus.mailcone.mailfilter.interfaces import (
     IBaseSettingObject, 
     IActionSettingObject,
     IFilterSettingObject

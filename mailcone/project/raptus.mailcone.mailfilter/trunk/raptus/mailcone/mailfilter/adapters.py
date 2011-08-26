@@ -1,8 +1,8 @@
 # grok stuff
 import grok
 
-from mailfilter.interfaces import ICopy, IRule
-from mailfilter.contents import Rule
+from raptus.mailcone.mailfilter.interfaces import ICopy, IRule
+from raptus.mailcone.mailfilter.contents import Rule
 
 class CopyRuleAdapter(grok.Adapter):
     """ Adapter provide ICopy for rule objects """

@@ -3,7 +3,7 @@ import sys, os
 
 version = '1.0'
 
-setup(name='raptus.mailcone.mfa_complexmatchfilter',
+setup(name='raptus.mailcone.from raptus.mailcone.mfa_complexmatchfilter',
       version=version,
       description="",
       long_description="""\
@@ -26,5 +26,5 @@ setup(name='raptus.mailcone.mfa_complexmatchfilter',
       ],
       entry_points={
           'fanstatic.libraries': [
-              'mfa_complexmatchfilter = mfa_complexmatchfilter.resource:library',
+              'from raptus.mailcone.mfa_complexmatchfilter = from raptus.mailcone.mfa_complexmatchfilter.resource:library',
           ]})

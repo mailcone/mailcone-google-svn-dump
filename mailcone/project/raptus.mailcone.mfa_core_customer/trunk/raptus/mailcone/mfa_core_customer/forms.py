@@ -4,9 +4,9 @@
 
 import grok
 
-from mailfilter.app import MailfilterApp
-from mfa_core_customer.interfaces import ICustomer
-from mfa_core_customer.contents import Customer
+from raptus.mailcone.mailfilter.app import MailfilterApp
+from raptus.mailcone.mfa_core_customer.interfaces import ICustomer
+from raptus.mailcone.mfa_core_customer.contents import Customer
 
 class AddCustomerForm(grok.AddForm):
     """ Generate add from for customer content - based on grok.AddFrom """

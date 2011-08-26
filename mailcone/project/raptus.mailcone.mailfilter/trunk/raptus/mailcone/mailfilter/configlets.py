@@ -1,7 +1,7 @@
 # grok stuff
 import grok
 
-from mailfilter.interfaces import (
+from raptus.mailcone.mailfilter.interfaces import (
     IConfiglet, 
     ISettingConfiglet, 
     IFilterSettingConfiglet, 

@@ -1,8 +1,8 @@
 import grok
 
-from mailfilter.interfaces import ICopy
-from mfa_sendnotificationaction.interfaces import ISendNotificationAction
-from mfa_sendnotificationaction.contents import SendNotificationAction
+from raptus.mailcone.mailfilter.interfaces import ICopy
+from raptus.mailcone.mfa_sendnotificationaction.interfaces import ISendNotificationAction
+from raptus.mailcone.mfa_sendnotificationaction.contents import SendNotificationAction
 
 class CopySendNotificationAction(grok.Adapter):
     """ Adapter provide ICopy for send notification objects """

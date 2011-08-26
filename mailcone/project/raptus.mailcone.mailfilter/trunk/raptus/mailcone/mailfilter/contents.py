@@ -20,8 +20,8 @@ from hurry.query.interfaces import IQuery
 from hurry.query import set, Eq, And
 
 # mailfilter stuff
-from mailfilter.app import MailfilterApp, SearchableContentMixin
-from mailfilter.interfaces import (
+from raptus.mailcone.mailfilter.app import MailfilterApp, SearchableContentMixin
+from raptus.mailcone.mailfilter.interfaces import (
     IRuleSet,
     IRuleType,
     IRule,
@@ -29,8 +29,8 @@ from mailfilter.interfaces import (
     ISearchableContent
 )
 
-from mfa_core_action.interfaces import IAction, IActionContainer 
-from mfa_core_filter.interfaces import IFilter, IFilterContainer 
+from raptus.mailcone.mfa_core_action.interfaces import IAction, IActionContainer 
+from raptus.mailcone.mfa_core_filter.interfaces import IFilter, IFilterContainer 
 
 class RuleSet(grok.Container, SearchableContentMixin):
     """ Provide template container. Modeled rules can be easily copied to a customer afterwards """

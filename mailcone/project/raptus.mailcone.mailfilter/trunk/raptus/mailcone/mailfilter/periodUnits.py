@@ -3,7 +3,7 @@
 """
 import grok
 
-from mailfilter.interfaces import IPeriodUnit
+from raptus.mailcone.mailfilter.interfaces import IPeriodUnit
 
 class PeriodUnit(object):
     """ XXX """

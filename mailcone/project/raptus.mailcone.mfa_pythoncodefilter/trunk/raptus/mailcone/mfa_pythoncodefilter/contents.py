@@ -3,10 +3,10 @@ import grok
 from zope.component import getUtility
 from zope import event, lifecycleevent
 
-from mailfilter.app import SearchableContentMixin
-from mailfilter.interfaces import ISearchableContent
-from mfa_core_filter.interfaces import IFilter, IFilterType, IFilterContainer
-from mfa_pythoncodefilter.interfaces import IPythonCodeFilter
+from raptus.mailcone.mailfilter.app import SearchableContentMixin
+from raptus.mailcone.mailfilter.interfaces import ISearchableContent
+from raptus.mailcone.mfa_core_filter.interfaces import IFilter, IFilterType, IFilterContainer
+from raptus.mailcone.mfa_pythoncodefilter.interfaces import IPythonCodeFilter
 
 class PythonCodeFilter(grok.Model, SearchableContentMixin):
     """ Provide a filter declared by own python code """

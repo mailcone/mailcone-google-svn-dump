@@ -4,13 +4,13 @@ from zope.component import getUtilitiesFor, getUtility
 from fanstatic import Library, Resource
 from js.jquery import jquery
 
-from mfa_core_action.interfaces import (
+from raptus.mailcone.mfa_core_action.interfaces import (
     IActionManager, 
     IActionType, 
     IActionMatchTypeManager, 
     IActionMatchType
 )
-from mailfilter.interfaces import IControlPanelJSExtention
+from raptus.mailcone.mailfilter.interfaces import IControlPanelJSExtention
 
 class ActionManager(grok.GlobalUtility):
     """ manage registered actions """

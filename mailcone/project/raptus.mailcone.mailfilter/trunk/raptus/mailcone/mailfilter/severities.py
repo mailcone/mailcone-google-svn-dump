@@ -3,7 +3,7 @@
 """
 import grok
 
-from mailfilter.interfaces import ISeverity
+from raptus.mailcone.mailfilter.interfaces import ISeverity
 
 class Severity(object):
     """ Base object for severities - used in rule objects """

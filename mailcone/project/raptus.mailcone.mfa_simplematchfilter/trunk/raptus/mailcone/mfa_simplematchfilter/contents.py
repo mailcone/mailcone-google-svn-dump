@@ -3,16 +3,16 @@ import grok
 from zope.component import getUtility
 from zope import event, lifecycleevent
 
-from mailfilter.app import SearchableContentMixin
-from mailfilter.interfaces import ISearchableContent
-from mfa_core_filter.interfaces import (
+from raptus.mailcone.mailfilter.app import SearchableContentMixin
+from raptus.mailcone.mailfilter.interfaces import ISearchableContent
+from raptus.mailcone.mfa_core_filter.interfaces import (
     IFilter, 
     IFilterType, 
     IFilterContainer,
     IMailSourceManager,
     ISimpleFilterOperatorManager
 ) 
-from mfa_simplematchfilter.interfaces import ISimpleMatchFilter
+from raptus.mailcone.mfa_simplematchfilter.interfaces import ISimpleMatchFilter
 
 class SimpleMatchFilter(grok.Model, SearchableContentMixin):
     """ Provide a filter for string conditions filtered by an operator """

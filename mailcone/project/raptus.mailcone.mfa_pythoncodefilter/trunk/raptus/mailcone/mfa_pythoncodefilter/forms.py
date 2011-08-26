@@ -1,8 +1,8 @@
 import grok
 
-from mfa_core_filter.interfaces import IFilterContainer
-from mfa_pythoncodefilter.interfaces import IPythonCodeFilter
-from mfa_pythoncodefilter.contents import PythonCodeFilter
+from raptus.mailcone.mfa_core_filter.interfaces import IFilterContainer
+from raptus.mailcone.mfa_pythoncodefilter.interfaces import IPythonCodeFilter
+from raptus.mailcone.mfa_pythoncodefilter.contents import PythonCodeFilter
 
 class AddPythonCodeFilterForm(grok.AddForm):
     """ Generate add from for python code filter content - based on grok.AddFrom """

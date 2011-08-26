@@ -5,8 +5,8 @@ from zope.component import getUtility
 from zope.pluggableauth.interfaces import IAuthenticatorPlugin
 from zope.authentication.interfaces import IAuthentication, IUnauthenticatedPrincipal, ILogout
 
-from mailfilter.viewletmanagers import Main
-from mfa_core_auth.contents import UserFolder
+from raptus.mailcone.mailfilter.viewletmanagers import Main
+from raptus.mailcone.mfa_core_auth.contents import UserFolder
 
 class Logout(grok.View):
     """XXX"""

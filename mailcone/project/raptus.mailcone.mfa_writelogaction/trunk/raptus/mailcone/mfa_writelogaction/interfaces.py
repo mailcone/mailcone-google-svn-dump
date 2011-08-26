@@ -8,7 +8,7 @@ from zope.publisher.interfaces.browser import IBrowserRequest
 from zope.browser.interfaces import ITerms
 from zope.component import getUtility
 
-from mfa_core_action.interfaces import ActionMatchTypes
+from raptus.mailcone.mfa_core_action.interfaces import ActionMatchTypes
 
 class ILogfile(Interface):
     """ XXX """

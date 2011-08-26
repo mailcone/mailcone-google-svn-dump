@@ -4,7 +4,7 @@ from zope.component import getUtilitiesFor, getUtility
 from fanstatic import Library, Resource
 from js.jquery import jquery
 
-from mfa_core_filter.interfaces import (
+from raptus.mailcone.mfa_core_filter.interfaces import (
     IFilterManager, 
     IFilterType,
     IMailSource,
@@ -12,7 +12,7 @@ from mfa_core_filter.interfaces import (
     ISimpleFilterOperator,
     ISimpleFilterOperatorManager
 )
-from mailfilter.interfaces import IControlPanelJSExtention
+from raptus.mailcone.mailfilter.interfaces import IControlPanelJSExtention
 
 # XXX - should be done in mailfilter
 class FilterJSExtender(grok.GlobalUtility):    

@@ -4,7 +4,7 @@ from zope.component import getUtility
 from zope.password.interfaces import IPasswordManager
 from zope.pluggableauth.interfaces import IPrincipalInfo
 
-from mfa_core_auth.interfaces import IAccount
+from raptus.mailcone.mfa_core_auth.interfaces import IAccount
 
 class PrincipalInfo(object):
     """XXX"""

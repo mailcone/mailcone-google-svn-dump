@@ -6,7 +6,7 @@ from zope.publisher.browser import TestRequest
 from zope.fanstatic.testing import ZopeFanstaticBrowserLayer
 
 import mailfilter.tests
-from mailfilter.app import Mailfilter
+from raptus.mailcone.mailfilter.app import Mailfilter
 
 # In this file we create a unittest, a functional unittest.
 

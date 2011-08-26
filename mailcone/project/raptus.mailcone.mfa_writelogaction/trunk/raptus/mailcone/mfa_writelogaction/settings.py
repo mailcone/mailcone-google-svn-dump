@@ -3,15 +3,15 @@ import grok
 from zope.component import getUtility
 from zope.traversing.api import getPath
 
-from mailfilter.app import MailfilterApp
-from mailfilter.interfaces import ISearchableContent
-from mailfilter.baseClasses import ActionSettingObject
+from raptus.mailcone.mailfilter.app import MailfilterApp
+from raptus.mailcone.mailfilter.interfaces import ISearchableContent
+from raptus.mailcone.mailfilter.baseClasses import ActionSettingObject
 
 # catalog stuff
 from hurry.query.interfaces import IQuery
 from hurry.query import set, Eq, And
 
-from mfa_writelogaction.interfaces import IWriteLogActionSettingObject, ILogfile
+from raptus.mailcone.mfa_writelogaction.interfaces import IWriteLogActionSettingObject, ILogfile
 
 class WirteLogActionSettingObject(ActionSettingObject):
     """ XXX """

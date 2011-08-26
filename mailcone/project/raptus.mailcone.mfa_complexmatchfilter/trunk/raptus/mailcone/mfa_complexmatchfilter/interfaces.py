@@ -3,7 +3,7 @@ import re
 from zope import schema
 from zope.interface import Interface
 
-from mfa_core_filter.interfaces import MailSources
+from raptus.mailcone.mfa_core_filter.interfaces import MailSources
 
 # XXX - should inherit from IFilter
 class IComplexMatchFilter(Interface):

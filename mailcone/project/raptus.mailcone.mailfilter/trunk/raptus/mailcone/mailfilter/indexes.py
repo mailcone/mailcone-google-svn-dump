@@ -2,8 +2,8 @@
 import grok
 from grok import index
 
-from mailfilter.app import MailfilterApp
-from mailfilter.interfaces import ISearchableContent
+from raptus.mailcone.mailfilter.app import MailfilterApp
+from raptus.mailcone.mailfilter.interfaces import ISearchableContent
 
 class ContentIndexes(grok.Indexes):
     """

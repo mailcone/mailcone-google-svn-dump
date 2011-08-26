@@ -1,8 +1,8 @@
 import grok
 
-from mfa_core_filter.interfaces import IFilterContainer
-from mfa_simplematchfilter.interfaces import ISimpleMatchFilter
-from mfa_simplematchfilter.contents import SimpleMatchFilter
+from raptus.mailcone.mfa_core_filter.interfaces import IFilterContainer
+from raptus.mailcone.mfa_simplematchfilter.interfaces import ISimpleMatchFilter
+from raptus.mailcone.mfa_simplematchfilter.contents import SimpleMatchFilter
 
 class AddSimpleMatchFilterForm(grok.AddForm):
     """ Generate add from for python code filter content - based on grok.AddFrom """

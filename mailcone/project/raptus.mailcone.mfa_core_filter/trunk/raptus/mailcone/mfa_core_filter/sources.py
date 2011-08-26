@@ -1,6 +1,6 @@
 import grok
 
-from mfa_core_filter.interfaces import IMailSource
+from raptus.mailcone.mfa_core_filter.interfaces import IMailSource
 
 class MailSourceBase(object):
     """ XXX """
