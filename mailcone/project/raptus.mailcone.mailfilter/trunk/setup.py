@@ -3,7 +3,7 @@ import sys, os
 
 version = '1.0'
 
-setup(name='raptus.mailcone.mfa_complexmatchfilter',
+setup(name='raptus.mailcone.mailfilter',
       version=version,
       description="",
       long_description="""\
@@ -18,13 +18,6 @@ setup(name='raptus.mailcone.mfa_complexmatchfilter',
       include_package_data=True,
       zip_safe=False,
       install_requires=[
-          'mailfilter',
-          'zope.fanstatic',
-          'zc.sourcefactory',
-          #'mailgrokker',
           # -*- Extra requirements: -*-
       ],
-      entry_points={
-          'fanstatic.libraries': [
-              'from raptus.mailcone.mfa_complexmatchfilter = from raptus.mailcone.mfa_complexmatchfilter.resource:library',
-          ]})
+      entry_points={})
