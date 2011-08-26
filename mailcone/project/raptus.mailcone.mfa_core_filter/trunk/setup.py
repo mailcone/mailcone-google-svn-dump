@@ -18,7 +18,7 @@ setup(name='raptus.mailcone.mfa_core_filter',
       include_package_data=True,
       zip_safe=False,
       install_requires=[
-          'mailfilter',
+          'raptus.mailcone.mailfilter',
           'zope.fanstatic',
           'zc.sourcefactory',
           #'mailgrokker',
@@ -26,5 +26,5 @@ setup(name='raptus.mailcone.mfa_core_filter',
       ],
       entry_points={
           'fanstatic.libraries': [
-              'mfa_core_filter = mfa_core_filter.resource:library',
+              'raptus.mailcone.mfa_core_filter = raptus.mailcone.mfa_core_filter.resource:library',
           ]})

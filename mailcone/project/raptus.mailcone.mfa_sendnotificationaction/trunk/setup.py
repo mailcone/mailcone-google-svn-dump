@@ -18,7 +18,7 @@ setup(name='raptus.mailcone.mfa_sendnotificationaction',
       include_package_data=True,
       zip_safe=False,
       install_requires=[
-          'mailfilter',
+          'raptus.mailcone.mailfilter',
           'zope.fanstatic',
           'zc.sourcefactory',
           #'mailgrokker',
@@ -26,5 +26,5 @@ setup(name='raptus.mailcone.mfa_sendnotificationaction',
       ],
       entry_points={
           'fanstatic.libraries': [
-              'mfa_sendnotificationaction = mfa_sendnotificationaction.resource:library',
+              'raptus.mailcone.mfa_sendnotificationaction = raptus.mailcone.mfa_sendnotificationaction.resource:library',
           ]})

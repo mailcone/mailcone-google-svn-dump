@@ -18,7 +18,7 @@ setup(name='raptus.mailcone.mfa_core_customer',
       include_package_data=True,
       zip_safe=False,
       install_requires=[
-          'mailfilter',
+          'raptus.mailcone.mailfilter',
           #'mailgrokker',
           # -*- Extra requirements: -*-
           'zope.fanstatic',
@@ -27,6 +27,6 @@ setup(name='raptus.mailcone.mfa_core_customer',
       ],
       entry_points={
           'fanstatic.libraries': [
-              'mfa_core_customer = mfa_core_customer.resource:library',
+              'raptus.mailcone.mfa_core_customer = raptus.mailcone.mfa_core_customer.resource:library',
           ]}
 )

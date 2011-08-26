@@ -18,7 +18,7 @@ setup(name='raptus.mailcone.mfa_complexmatchfilter',
       include_package_data=True,
       zip_safe=False,
       install_requires=[
-          'mailfilter',
+          'raptus.mailcone.mailfilter',
           'zope.fanstatic',
           'zc.sourcefactory',
           #'mailgrokker',
@@ -26,5 +26,5 @@ setup(name='raptus.mailcone.mfa_complexmatchfilter',
       ],
       entry_points={
           'fanstatic.libraries': [
-              'from raptus.mailcone.mfa_complexmatchfilter = from raptus.mailcone.mfa_complexmatchfilter.resource:library',
+              'raptus.mailcone.mfa_complexmatchfilter = raptus.mailcone.mfa_complexmatchfilter.resource:library',
           ]})
