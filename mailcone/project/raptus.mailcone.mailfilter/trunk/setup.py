@@ -32,4 +32,7 @@ setup(name='raptus.mailcone.mailfilter',
         'zope.pluggableauth',
         
       ],
-      entry_points={})
+      entry_points={
+          'fanstatic.libraries': [
+              'raptus.mailcone.mailfilter = raptus.mailcone.mailfilter.resource:library',
+          ]})
