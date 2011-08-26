@@ -22,5 +22,7 @@ setup(name='raptus.mailcone.mailfilter',
         'grok',
         'grokui.admin',
         'grokcore.startup',
+        'js.jquery',
+        'js.jqueryui',
       ],
       entry_points={})
