@@ -4,8 +4,8 @@ from datetime import datetime
 
 from zope.component import getUtility
 
-from mailfilter.app import MailfilterApp
-from mailfilter.interfaces import (
+from raptus.mailcone.mailfilter.app import MailfilterApp
+from raptus.mailcone.mailfilter.interfaces import (
     IRuleSet, 
     IRuleContainer, 
     IRule, 
@@ -13,7 +13,7 @@ from mailfilter.interfaces import (
     IDatabaseSettings,
     ISmtpServerUtil
 )
-from mailfilter.contents import RuleSet, Rule
+from raptus.mailcone.mailfilter.contents import RuleSet, Rule
 
 #
 # App configuration

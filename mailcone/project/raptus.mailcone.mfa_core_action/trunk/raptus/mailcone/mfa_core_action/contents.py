@@ -1,6 +1,6 @@
 import grok
 
-from mfa_core_action.interfaces import IAction
+from raptus.mailcone.mfa_core_action.interfaces import IAction
 
 class Action(object):
     """XXX"""

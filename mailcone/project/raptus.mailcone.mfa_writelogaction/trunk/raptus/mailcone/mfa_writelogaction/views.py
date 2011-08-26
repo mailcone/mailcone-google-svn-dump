@@ -1,14 +1,14 @@
 import grok
 from zope.component import getMultiAdapter
 
-from mfa_core_action.interfaces import IActionContainer
-from mailfilter.viewletmanagers import Main
-from mfa_writelogaction.interfaces import (
+from raptus.mailcone.mfa_core_action.interfaces import IActionContainer
+from raptus.mailcone.mailfilter.viewletmanagers import Main
+from raptus.mailcone.mfa_writelogaction.interfaces import (
     IWriteLogAction, 
     IWriteLogActionSettingObject,
     ILogfile
 )
-from mfa_writelogaction.contents import WriteLogAction
+from raptus.mailcone.mfa_writelogaction.contents import WriteLogAction
 
 class AddWriteLogActionView(grok.View):
     """ Provide view container for viewlet which contains the generate add form """

@@ -2,7 +2,7 @@ import grok
 
 import smtplib
 
-from mailfilter.interfaces import ISmtpServerUtil
+from raptus.mailcone.mailfilter.interfaces import ISmtpServerUtil
 
 # XXX - must be done in a local utility if smtp should be configurable
 class SmtpServerUtil(grok.LocalUtility):

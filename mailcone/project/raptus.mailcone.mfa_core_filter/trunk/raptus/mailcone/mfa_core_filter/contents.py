@@ -1,6 +1,6 @@
 import grok
 
-from mfa_core_filter.interfaces import IFilter
+from raptus.mailcone.mfa_core_filter.interfaces import IFilter
 
 class Filter(object):
     """XXX"""

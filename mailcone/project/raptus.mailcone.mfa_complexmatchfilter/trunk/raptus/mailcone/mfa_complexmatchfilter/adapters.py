@@ -1,8 +1,8 @@
 import grok
 
-from mailfilter.interfaces import ICopy
-from mfa_complexmatchfilter.interfaces import IComplexMatchFilter 
-from mfa_complexmatchfilter.contents import ComplexMatchFilter
+from raptus.mailcone.mailfilter.interfaces import ICopy
+from from raptus.mailcone.mfa_complexmatchfilter.interfaces import IComplexMatchFilter 
+from from raptus.mailcone.mfa_complexmatchfilter.contents import ComplexMatchFilter
 
 class CopyComplexMatchFilter(grok.Adapter):
     """ Adapter provide ICopy for complex match filter objects """

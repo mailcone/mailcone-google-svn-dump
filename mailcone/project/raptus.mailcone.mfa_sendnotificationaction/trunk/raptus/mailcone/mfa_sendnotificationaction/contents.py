@@ -5,10 +5,10 @@ from email.mime.text import MIMEText
 from zope.component import getUtility
 from zope import event, lifecycleevent
 
-from mailfilter.app import SearchableContentMixin
-from mailfilter.interfaces import ISearchableContent, ISmtpServerUtil
-from mfa_core_action.interfaces import IAction, IActionType, IActionContainer
-from mfa_sendnotificationaction.interfaces import ISendNotificationAction
+from raptus.mailcone.mailfilter.app import SearchableContentMixin
+from raptus.mailcone.mailfilter.interfaces import ISearchableContent, ISmtpServerUtil
+from raptus.mailcone.mfa_core_action.interfaces import IAction, IActionType, IActionContainer
+from raptus.mailcone.mfa_sendnotificationaction.interfaces import ISendNotificationAction
 
 class SendNotificationAction(grok.Model, SearchableContentMixin):
     """ Provide a action for send notification mails """

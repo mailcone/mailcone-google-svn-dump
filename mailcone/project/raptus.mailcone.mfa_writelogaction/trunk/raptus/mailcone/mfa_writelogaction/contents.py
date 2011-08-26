@@ -6,10 +6,10 @@ import os
 from zope.component import getUtility
 from zope import event, lifecycleevent
 
-from mailfilter.app import SearchableContentMixin
-from mailfilter.interfaces import ISearchableContent
-from mfa_core_action.interfaces import IAction, IActionType, IActionContainer
-from mfa_writelogaction.interfaces import IWriteLogAction, ILogfile, IWriteLogActionSettingObject, ILogfileManager
+from raptus.mailcone.mailfilter.app import SearchableContentMixin
+from raptus.mailcone.mailfilter.interfaces import ISearchableContent
+from raptus.mailcone.mfa_core_action.interfaces import IAction, IActionType, IActionContainer
+from raptus.mailcone.mfa_writelogaction.interfaces import IWriteLogAction, ILogfile, IWriteLogActionSettingObject, ILogfileManager
 
 class WriteLogAction(grok.Model, SearchableContentMixin):
     """ Provide a action for write messages in logfiles """

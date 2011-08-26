@@ -7,15 +7,15 @@ from zope.component import getUtility, getMultiAdapter
 from hurry.query.interfaces import IQuery
 from hurry.query import Eq
 
-from mailfilter.app import MailfilterApp
-from mailfilter.viewletmanagers import Main
-from mailfilter.interfaces import IRuleJSExtenerManager, ICopy
-from mailfilter.resource import controlPanelCss, controlPanelJs
-from mailfilter.resource import library as MailfilterLibrary
+from raptus.mailcone.mailfilter.app import MailfilterApp
+from raptus.mailcone.mailfilter.viewletmanagers import Main
+from raptus.mailcone.mailfilter.interfaces import IRuleJSExtenerManager, ICopy
+from raptus.mailcone.mailfilter.resource import controlPanelCss, controlPanelJs
+from raptus.mailcone.mailfilter.resource import library as MailfilterLibrary
 
-from mfa_core_customer.interfaces import ICustomer
-from mfa_core_customer.contents import Customer
-from mfa_core_customer.resource import popupCss, popupJs
+from raptus.mailcone.mfa_core_customer.interfaces import ICustomer
+from raptus.mailcone.mfa_core_customer.contents import Customer
+from raptus.mailcone.mfa_core_customer.resource import popupCss, popupJs
 
 #
 # Configlet

@@ -4,21 +4,21 @@ from zope import component
 from zope.traversing.api import getPath
 from zope.component import getUtility
 
-from mailfilter.smtpUtil import SmtpServerUtil
-from mailfilter.configlets import FilterSettingConfiglet, ActionSettingConfiglet
-from mailfilter.interfaces import (
+from raptus.mailcone.mailfilter.smtpUtil import SmtpServerUtil
+from raptus.mailcone.mailfilter.configlets import FilterSettingConfiglet, ActionSettingConfiglet
+from raptus.mailcone.mailfilter.interfaces import (
     IMailfilterApp, 
     ISmtpServerUtil,
     ISettingConfiglet
 )
-from mailfilter import resource
+from raptus.mailcone.mailfilter import resource
 
 from zope.pluggableauth.authentication import PluggableAuthentication
 from zope.authentication.interfaces import IAuthentication
 from zope.pluggableauth.interfaces import IAuthenticatorPlugin
 
-from mfa_core_auth.auth import setup_authentication
-from mfa_core_auth.utils import UserAuthenticatorPlugin
+from raptus.mailcone.mfa_core_auth.auth import setup_authentication
+from raptus.mailcone.mfa_core_auth.utils import UserAuthenticatorPlugin
 
 class MailfilterApp(grok.Application, grok.Container):
     grok.implements(IMailfilterApp)

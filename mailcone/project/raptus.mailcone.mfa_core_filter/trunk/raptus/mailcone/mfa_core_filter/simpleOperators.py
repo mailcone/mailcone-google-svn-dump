@@ -1,6 +1,6 @@
 import grok
 
-from mfa_core_filter.interfaces import (
+from raptus.mailcone.mfa_core_filter.interfaces import (
     ISimpleFilterOperator, 
     ISimpleFilterOperatorOperationBased, 
     ISimpleFilterOperatorFuncBased

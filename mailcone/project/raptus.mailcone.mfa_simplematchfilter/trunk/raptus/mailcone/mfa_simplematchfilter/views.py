@@ -1,10 +1,10 @@
 import grok
 from zope.component import getMultiAdapter
 
-from mailfilter.viewletmanagers import Main
-from mfa_core_filter.interfaces import IFilterContainer
-from mfa_simplematchfilter.interfaces import ISimpleMatchFilter
-from mfa_simplematchfilter.contents import SimpleMatchFilter
+from raptus.mailcone.mailfilter.viewletmanagers import Main
+from raptus.mailcone.mfa_core_filter.interfaces import IFilterContainer
+from raptus.mailcone.mfa_simplematchfilter.interfaces import ISimpleMatchFilter
+from raptus.mailcone.mfa_simplematchfilter.contents import SimpleMatchFilter
 
 class AddSimpleMatchFilterView(grok.View):
     """ Provide view container for viewlet which contains the generate add form """

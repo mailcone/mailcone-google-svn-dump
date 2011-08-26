@@ -1,8 +1,8 @@
 import grok
 
-from mailfilter.interfaces import ICopy
-from mfa_simplematchfilter.interfaces import ISimpleMatchFilter 
-from mfa_simplematchfilter.contents import SimpleMatchFilter
+from raptus.mailcone.mailfilter.interfaces import ICopy
+from raptus.mailcone.mfa_simplematchfilter.interfaces import ISimpleMatchFilter 
+from raptus.mailcone.mfa_simplematchfilter.contents import SimpleMatchFilter
 
 class CopySimpleMatchFilter(grok.Adapter):
     """ Adapter provide ICopy for simple match filter objects """

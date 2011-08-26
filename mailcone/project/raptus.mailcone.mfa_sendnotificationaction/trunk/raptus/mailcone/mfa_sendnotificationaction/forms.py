@@ -1,8 +1,8 @@
 import grok
 
-from mfa_core_action.interfaces import IActionContainer
-from mfa_sendnotificationaction.interfaces import ISendNotificationAction
-from mfa_sendnotificationaction.contents import SendNotificationAction
+from raptus.mailcone.mfa_core_action.interfaces import IActionContainer
+from raptus.mailcone.mfa_sendnotificationaction.interfaces import ISendNotificationAction
+from raptus.mailcone.mfa_sendnotificationaction.contents import SendNotificationAction
 
 class AddSendNotificationActionForm(grok.AddForm):
     """ Generate add from for send notification action content - based on grok.AddFrom """

@@ -1,6 +1,6 @@
 import grok
 
-from mfa_core_action.interfaces import IActionMatchType
+from raptus.mailcone.mfa_core_action.interfaces import IActionMatchType
 
 class ActionMatchType(object):
     """ XXX """

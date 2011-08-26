@@ -1,8 +1,8 @@
 import grok
 
-from mfa_core_action.interfaces import IActionContainer
-from mfa_writelogaction.interfaces import IWriteLogAction, IWriteLogActionSettingObject, ILogfile
-from mfa_writelogaction.contents import WriteLogAction, Logfile
+from raptus.mailcone.mfa_core_action.interfaces import IActionContainer
+from raptus.mailcone.mfa_writelogaction.interfaces import IWriteLogAction, IWriteLogActionSettingObject, ILogfile
+from raptus.mailcone.mfa_writelogaction.contents import WriteLogAction, Logfile
 
 class AddWriteLogActionForm(grok.AddForm):
     """ Generate add from for write log action content - based on grok.AddFrom """

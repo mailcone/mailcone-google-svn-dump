@@ -5,7 +5,7 @@ from zope.pluggableauth.interfaces import ICredentialsPlugin
 from zope.pluggableauth.interfaces import IAuthenticatorPlugin
 from zope.securitypolicy.interfaces import IPrincipalRoleManager
 
-from mfa_core_auth.contents import UserFolder, PrincipalInfo, Account
+from raptus.mailcone.mfa_core_auth.contents import UserFolder, PrincipalInfo, Account
 
 class MySessionCredentialsPlugin(grok.GlobalUtility, SessionCredentialsPlugin):
     """XXX"""

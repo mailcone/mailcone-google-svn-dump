@@ -2,12 +2,12 @@ import grok
 from fanstatic import Library, Resource
 from zope.component import getUtilitiesFor, getUtility
 
-from mailfilter.resource import rulesetJsExtender
-from mailfilter.interfaces import IControlPanelJSExtention
-from mfa_core_action.interfaces import IActionType
+from raptus.mailcone.mailfilter.resource import rulesetJsExtender
+from raptus.mailcone.mailfilter.interfaces import IControlPanelJSExtention
+from raptus.mailcone.mfa_core_action.interfaces import IActionType
 
-from mfa_writelogaction.interfaces import ILogfileManager, ILogfile, ILoglevelManager, ILoglevelUtil, IWriteLogActionSettingObject
-from mfa_writelogaction.settings import WirteLogActionSettingObject
+from raptus.mailcone.mfa_writelogaction.interfaces import ILogfileManager, ILogfile, ILoglevelManager, ILoglevelUtil, IWriteLogActionSettingObject
+from raptus.mailcone.mfa_writelogaction.settings import WirteLogActionSettingObject
 
 # catalog stuff
 from hurry.query.interfaces import IQuery

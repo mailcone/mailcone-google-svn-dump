@@ -1,7 +1,7 @@
 from zope import schema
 from zope.interface import Interface
 
-from mfa_core_action.interfaces import ActionMatchTypes
+from raptus.mailcone.mfa_core_action.interfaces import ActionMatchTypes
 
 class ISendNotificationAction(Interface):
     """ Interface for send notification action """

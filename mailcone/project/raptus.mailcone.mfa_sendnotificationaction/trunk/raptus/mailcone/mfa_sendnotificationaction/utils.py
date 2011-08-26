@@ -1,9 +1,9 @@
 import grok
 from fanstatic import Library, Resource
 
-from mailfilter.resource import rulesetJsExtender
-from mailfilter.interfaces import IControlPanelJSExtention
-from mfa_core_action.interfaces import IActionType
+from raptus.mailcone.mailfilter.resource import rulesetJsExtender
+from raptus.mailcone.mailfilter.interfaces import IControlPanelJSExtention
+from raptus.mailcone.mfa_core_action.interfaces import IActionType
 
 class SendNotificationActionType(grok.GlobalUtility):
     """ Utility provide action type send notification for filter manager """

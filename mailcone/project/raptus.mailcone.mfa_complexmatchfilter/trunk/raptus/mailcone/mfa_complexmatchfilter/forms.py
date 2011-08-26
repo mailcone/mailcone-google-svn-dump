@@ -1,8 +1,8 @@
 import grok
 
-from mfa_core_filter.interfaces import IFilterContainer
-from mfa_complexmatchfilter.interfaces import IComplexMatchFilter
-from mfa_complexmatchfilter.contents import ComplexMatchFilter
+from raptus.mailcone.mfa_core_filter.interfaces import IFilterContainer
+from from raptus.mailcone.mfa_complexmatchfilter.interfaces import IComplexMatchFilter
+from from raptus.mailcone.mfa_complexmatchfilter.contents import ComplexMatchFilter
 
 class AddComplexMatchFilterForm(grok.AddForm):
     """ Generate add from for complex match filter content - based on grok.AddFrom """

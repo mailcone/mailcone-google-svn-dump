@@ -1,6 +1,6 @@
 import grok
 
-from mfa_writelogaction.interfaces import ILoglevelUtil
+from raptus.mailcone.mfa_writelogaction.interfaces import ILoglevelUtil
 
 class LoglevelUtil(object):
     """ XXX """

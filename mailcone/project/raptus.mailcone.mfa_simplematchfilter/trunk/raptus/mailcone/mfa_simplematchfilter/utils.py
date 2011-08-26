@@ -1,10 +1,10 @@
 import grok
 from fanstatic import Library, Resource
 
-from mailfilter.resource import rulesetJsExtender
-from mailfilter.interfaces import IControlPanelJSExtention
+from raptus.mailcone.mailfilter.resource import rulesetJsExtender
+from raptus.mailcone.mailfilter.interfaces import IControlPanelJSExtention
 
-from mfa_core_filter.interfaces import IFilterType
+from raptus.mailcone.mfa_core_filter.interfaces import IFilterType
 
 class SimpleMatchFilterType(grok.GlobalUtility):
     """ Utility provide filter type simple match for filter manager """

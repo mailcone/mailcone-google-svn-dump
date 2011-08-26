@@ -5,7 +5,7 @@ from zope.component import getUtilitiesFor
 from fanstatic import Library, Resource
 from js.jquery import jquery
 
-from mailfilter.interfaces import IControlPanelJSExtention
+from raptus.mailcone.mailfilter.interfaces import IControlPanelJSExtention
 
 class CustomerConfigletJSExtender(grok.GlobalUtility):    
     """ XXX - test"""

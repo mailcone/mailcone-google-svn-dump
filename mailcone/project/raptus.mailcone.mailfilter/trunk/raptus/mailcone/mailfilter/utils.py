@@ -7,7 +7,7 @@ from zope.component import getUtilitiesFor
 from fanstatic import Library, Resource
 from js.jquery import jquery
 
-from mailfilter.interfaces import (
+from raptus.mailcone.mailfilter.interfaces import (
     IRuleType,
     IRuleTypeManager,
     ISeverity,
@@ -152,8 +152,8 @@ class RuleTypeManager(grok.GlobalUtility):
 from zope.component import getUtility
 from hurry.query.interfaces import IQuery
 from hurry.query import Eq
-from mailfilter.interfaces import IFilterMailsUtility
-from mailfilter.contents import Mail
+from raptus.mailcone.mailfilter.interfaces import IFilterMailsUtility
+from raptus.mailcone.mailfilter.contents import Mail
 from megrok import rdb
 
 class FilterMailsUtility(grok.GlobalUtility):

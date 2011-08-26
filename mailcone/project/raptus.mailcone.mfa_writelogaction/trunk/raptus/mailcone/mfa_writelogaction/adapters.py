@@ -1,8 +1,8 @@
 import grok
 
-from mailfilter.interfaces import ICopy
-from mfa_writelogaction.interfaces import IWriteLogAction
-from mfa_writelogaction.contents import WriteLogAction
+from raptus.mailcone.mailfilter.interfaces import ICopy
+from raptus.mailcone.mfa_writelogaction.interfaces import IWriteLogAction
+from raptus.mailcone.mfa_writelogaction.contents import WriteLogAction
 
 class CopyWriteLogAction(grok.Adapter):
     """ Adapter provide ICopy for write log objects """

@@ -4,8 +4,8 @@ from zope.interface import Interface
 from zope.component import getUtility
 from zope.pluggableauth.interfaces import IAuthenticatorPlugin
 
-from mfa_core_auth.interfaces import IAddUserForm, IAccount, ILoginForm
-from mfa_core_auth.contents import Account, UserFolder
+from raptus.mailcone.mfa_core_auth.interfaces import IAddUserForm, IAccount, ILoginForm
+from raptus.mailcone.mfa_core_auth.contents import Account, UserFolder
 
 class Login(grok.Form):
     """ Provide login from for application """

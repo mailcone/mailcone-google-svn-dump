@@ -1,7 +1,7 @@
 # grok stuff
 import grok
 
-from mailfilter.interfaces import IConfiglet
+from raptus.mailcone.mailfilter.interfaces import IConfiglet
 
 class CustomerConfiglet (grok.GlobalUtility):
     """ Utility provide a gui to manage customers """

@@ -7,16 +7,16 @@ from zope.component import getUtility, getMultiAdapter
 from hurry.query.interfaces import IQuery
 from hurry.query import set, Eq, And
 
-from mailfilter.app import MailfilterApp
-from mailfilter.viewletmanagers import HeadSlot, LeftColumn, Main, Footer
-from mailfilter.resource import library as MailfilterLibrary
-from mailfilter.resource import controlPanelCss, controlPanelJs, dashBoardJs
-from mailfilter.contents import RuleSet, Rule
+from raptus.mailcone.mailfilter.app import MailfilterApp
+from raptus.mailcone.mailfilter.viewletmanagers import HeadSlot, LeftColumn, Main, Footer
+from raptus.mailcone.mailfilter.resource import library as MailfilterLibrary
+from raptus.mailcone.mailfilter.resource import controlPanelCss, controlPanelJs, dashBoardJs
+from raptus.mailcone.mailfilter.contents import RuleSet, Rule
 
-from mfa_core_filter.utils import IFilterManager
-from mfa_core_action.utils import IActionManager
+from raptus.mailcone.mfa_core_filter.utils import IFilterManager
+from raptus.mailcone.mfa_core_action.utils import IActionManager
 
-from mailfilter.interfaces import (
+from raptus.mailcone.mailfilter.interfaces import (
     IRuleJSExtenerManager,
     IControlPanel, 
     IRuleSet, 
@@ -28,8 +28,8 @@ from mailfilter.interfaces import (
     ISmtpServerUtil
 )
 
-from mfa_core_action.interfaces import IActionManager
-from mfa_core_filter.interfaces import IFilterManager
+from raptus.mailcone.mfa_core_action.interfaces import IActionManager
+from raptus.mailcone.mfa_core_filter.interfaces import IFilterManager
 
 #
 # Base viewlets
@@ -459,8 +459,8 @@ class EditIconsMacro(grok.View):
 
 
 from megrok import rdb
-from mailfilter.interfaces import IFilterMailsUtility
-from mailfilter.contents import Mail
+from raptus.mailcone.mailfilter.interfaces import IFilterMailsUtility
+from raptus.mailcone.mailfilter.contents import Mail
 class FilteringView(grok.View):
     """ XXX - maybe only for development """
     grok.context(Interface)

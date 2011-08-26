@@ -1,8 +1,8 @@
 import grok
 
-from mailfilter.interfaces import ICopy
-from mfa_pythoncodefilter.interfaces import IPythonCodeFilter 
-from mfa_pythoncodefilter.contents import PythonCodeFilter
+from raptus.mailcone.mailfilter.interfaces import ICopy
+from raptus.mailcone.mfa_pythoncodefilter.interfaces import IPythonCodeFilter 
+from raptus.mailcone.mfa_pythoncodefilter.contents import PythonCodeFilter
 
 class CopyPythonCodeFilter(grok.Adapter):
     """ Adapter provide ICopy for python code filter objects """
