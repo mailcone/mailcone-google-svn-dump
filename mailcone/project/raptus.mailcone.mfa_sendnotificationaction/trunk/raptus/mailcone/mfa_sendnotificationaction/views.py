@@ -1,15 +1,16 @@
 import grok
 from zope.component import getMultiAdapter
 
+from raptus.mailcone.mailfilter.views import BaseMasterView
+
 from raptus.mailcone.mfa_core_action.interfaces import IActionContainer
 from raptus.mailcone.mailfilter.viewletmanagers import Main
 from raptus.mailcone.mfa_sendnotificationaction.interfaces import ISendNotificationAction
 from raptus.mailcone.mfa_sendnotificationaction.contents import SendNotificationAction
 
-class AddSendNotificationActionView(grok.View):
+class AddSendNotificationActionView(BaseMasterView):
     """ Provide view container for viewlet which contains the generate add form """
     grok.context(IActionContainer)
-    grok.template('master')
     grok.name('addSendNotificationAction')
     grok.require('mailfilter.view')
 
@@ -26,11 +27,10 @@ class AddSendNotificationActionViewlet(grok.Viewlet):
     def render(self):
         return self.form.render()
     
-class SendNotificationActionView(grok.View):
+class SendNotificationActionView(BaseMasterView):
     """ View for send notification action - redirect to parent object view """
     grok.context(ISendNotificationAction)
     grok.name('index')
-    grok.template('master')
     grok.require('mailfilter.view')
 
 class SendNotificationActionViewlet(grok.Viewlet):
@@ -47,11 +47,10 @@ class SendNotificationActionMacro(grok.View):
     grok.template('sendnotificationaction_macro')
     grok.require('mailfilter.view')
 
-class EditSendNotificationActionView(grok.View):
+class EditSendNotificationActionView(BaseMasterView):
     """ Provide view container for viewlet which contains the generate edit form """
     grok.context(ISendNotificationAction)
     grok.name('edit')
-    grok.template('master')
     grok.require('mailfilter.view')
 
 class EditSendNotificationActionViewlet(grok.Viewlet):

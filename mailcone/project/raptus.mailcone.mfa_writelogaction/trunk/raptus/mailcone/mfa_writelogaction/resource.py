@@ -1,3 +1,3 @@
 from fanstatic import Library, Resource
 
-library = Library('mfa_writelogaction', 'static')
+library = Library('raptus.mailcone.mfa_writelogaction', 'static')

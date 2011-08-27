@@ -2,7 +2,7 @@ from fanstatic import Library, Resource
 from js.jquery import jquery
 from js.jqueryui import jqueryui
 
-library = Library('mailfilter', 'static')
+library = Library('raptus.mailcone.mailfilter', 'static')
 
 style = Resource(library, 'style.css')
 controlPanelCss = Resource(library, 'controlpanel.css')

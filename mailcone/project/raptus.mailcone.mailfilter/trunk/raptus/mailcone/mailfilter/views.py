@@ -31,6 +31,10 @@ from raptus.mailcone.mailfilter.interfaces import (
 from raptus.mailcone.mfa_core_action.interfaces import IActionManager
 from raptus.mailcone.mfa_core_filter.interfaces import IFilterManager
 
+class BaseMasterView(grok.View):
+    grok.context(Interface)
+    grok.template('master')
+
 #
 # Base viewlets
 #

@@ -1,3 +1,3 @@
 from fanstatic import Library, Resource
 
-library = Library('mfa_sendnotificationaction', 'static')
+library = Library('raptus.mailcone.mfa_sendnotificationaction', 'static')
