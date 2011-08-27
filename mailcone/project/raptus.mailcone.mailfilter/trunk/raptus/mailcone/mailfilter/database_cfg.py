@@ -5,7 +5,7 @@ from megrok import rdb
 from z3c.saconfig import (EngineFactory, GloballyScopedSession)
 from z3c.saconfig.interfaces import (IEngineFactory, IScopedSession, IEngineCreatedEvent)
 
-DSN = 'postgresql://user:pw@localhost:5432/mails'
+DSN = 'postgresql://mailcone@localhost:5432/mails'
 
 # XXX should be later a local utility
 """ XXX - If you want this utility to be persistent, you should subclass it
