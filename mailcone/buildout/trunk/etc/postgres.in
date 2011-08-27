@@ -1,0 +1,19 @@
+#!/bin/bash
+
+if [ "$1" == "fg" ]
+    then
+    ${postgres:location}/bin/postgres -D ${postgres-init:data}
+  elif [ "$1" == "start" ]
+    then
+    ${postgres:location}/bin/pg_ctl start -D ${postgres-init:data} -l ${postgres-init:log}
+  elif [ "$1" == "stop" ]
+    then
+    ${postgres:location}/bin/pg_ctl stop -D ${postgres-init:data}
+  elif [ "$1" == "restart" ]
+    then
+    ${postgres:location}/bin/pg_ctl restart -D ${postgres-init:data} -l ${postgres-init:log}
+  else
+  echo "postgress [fg|start|stop|restart]"
+  echo ""
+  echo "Use command fg, start, stop or restart to control postgres database"
+fi
