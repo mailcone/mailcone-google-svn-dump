@@ -1,3 +1,3 @@
 from fanstatic import Library, Resource
 
-library = Library('mfa_pythoncodefilter', 'static')
+library = Library('raptus.mailcone.mfa_pythoncodefilter', 'static')

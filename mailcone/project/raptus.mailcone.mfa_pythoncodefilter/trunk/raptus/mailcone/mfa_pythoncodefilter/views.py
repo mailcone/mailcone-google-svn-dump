@@ -1,15 +1,16 @@
 import grok
 from zope.component import getMultiAdapter
 
+from raptus.mailcone.mailfilter.views import BaseMasterView
+
 from raptus.mailcone.mfa_core_filter.interfaces import IFilterContainer
 from raptus.mailcone.mailfilter.viewletmanagers import Main
 from raptus.mailcone.mfa_pythoncodefilter.interfaces import IPythonCodeFilter
 from raptus.mailcone.mfa_pythoncodefilter.contents import PythonCodeFilter
 
-class AddPythonCodeFilterView(grok.View):
+class AddPythonCodeFilterView(BaseMasterView):
     """ Provide view container for viewlet which contains the generate add form """
     grok.context(IFilterContainer)
-    grok.template('master')
     grok.name('addPythonFilter')
     grok.require('mailfilter.view')
 
@@ -26,11 +27,10 @@ class AddPythonCodeFilterViewlet(grok.Viewlet):
     def render(self):
         return self.form.render()
     
-class PythonCodeFilterView(grok.View):
+class PythonCodeFilterView(BaseMasterView):
     """ View for python code filter - redirect to parent object view """
     grok.context(IPythonCodeFilter)
     grok.name('index')
-    grok.template('master')
     grok.require('mailfilter.view')
 
 class PythonCodeFilterViewlet(grok.Viewlet):
@@ -47,11 +47,10 @@ class PythonCodeFilterMacro(grok.View):
     grok.template('pythoncodefilter_macro')
     grok.require('mailfilter.view')
 
-class EditPythonCodeFilterView(grok.View):
+class EditPythonCodeFilterView(BaseMasterView):
     """ Provide view container for viewlet which contains the generate edit form """
     grok.context(IPythonCodeFilter)
     grok.name('edit')
-    grok.template('master')
     grok.require('mailfilter.view')
 
 class EditPythonCodeFilterViewlet(grok.Viewlet):

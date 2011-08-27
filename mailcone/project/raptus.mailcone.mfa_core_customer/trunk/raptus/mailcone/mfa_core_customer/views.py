@@ -12,6 +12,7 @@ from raptus.mailcone.mailfilter.viewletmanagers import Main
 from raptus.mailcone.mailfilter.interfaces import IRuleJSExtenerManager, ICopy
 from raptus.mailcone.mailfilter.resource import controlPanelCss, controlPanelJs
 from raptus.mailcone.mailfilter.resource import library as MailfilterLibrary
+from raptus.mailcone.mailfilter.views import BaseMasterView
 
 from raptus.mailcone.mfa_core_customer.interfaces import ICustomer
 from raptus.mailcone.mfa_core_customer.contents import Customer
@@ -20,11 +21,10 @@ from raptus.mailcone.mfa_core_customer.resource import popupCss, popupJs
 #
 # Configlet
 #
-class CustomerConfigletView (grok.View):
+class CustomerConfigletView (BaseMasterView):
     """ Provide view for customer management """
     grok.context(MailfilterApp)
     grok.name('customerConfiglet')
-    grok.template('master')
     grok.require('mailfilter.view')
 
 class CustomerConfigletViewlet(grok.Viewlet):
@@ -54,10 +54,9 @@ class CustomerMacro(grok.View):
     grok.name('macro')
     grok.require('mailfilter.view')
 
-class CpCustomerView(grok.View):
+class CpCustomerView(BaseMasterView):
     """ XXX """
     grok.context(ICustomer)
-    grok.template('master')
     grok.name('controlpanel_view')
     grok.require('mailfilter.view')
 
@@ -68,10 +67,9 @@ class CpCustomerViewlet(grok.Viewlet):
     grok.template('customer_controlpanel_viewlet')
     grok.view(CpCustomerView)
 
-class CustomerView(grok.View):
+class CustomerView(BaseMasterView):
     """ Provide main view for a customer object """
     grok.context(ICustomer)
-    grok.template('master')
     grok.name('index')
     grok.require('mailfilter.view')
     
@@ -92,10 +90,9 @@ class CustomerViewlet(grok.Viewlet):
         for jsExtension in jsExManager.listJSExtensions():
             jsExtension.need()
 
-class AddCustomerView(grok.View):
+class AddCustomerView(BaseMasterView):
     """ Provide view container for viewlet which contains the generate add form """
     grok.context(MailfilterApp)
-    grok.template('master')
     grok.name('addCustomer')
     grok.require('mailfilter.view')
 
@@ -121,11 +118,10 @@ class AddCustomerViewlet(grok.Viewlet):
     grok.template('add_customer_viewlet')
     grok.view(AddCustomerView)
 
-class EditCustomerView(grok.View):
+class EditCustomerView(BaseMasterView):
     """ Provide view container for viewlet which contains the generate edit form """
     grok.context(ICustomer)
     grok.name('edit')
-    grok.template('master')
     grok.require('mailfilter.view')
     
     def getActionButtonId(self):
@@ -162,11 +158,10 @@ class DeleteCustomerView(grok.View):
     def render(self):
         self.redirect(self.url(self.parent, 'customerConfiglet'))
 
-class LoadRuleSetView(grok.View):
+class LoadRuleSetView(BaseMasterView):
     """ Povide a view to load defined rule sets for a customer """
     grok.context(ICustomer)
     grok.name('loadRuleSet')
-    grok.template('master')
     grok.require('mailfilter.view')
 
     rulesets = None

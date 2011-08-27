@@ -2,14 +2,14 @@ import grok
 from zope.component import getMultiAdapter
 
 from raptus.mailcone.mailfilter.viewletmanagers import Main
+from raptus.mailcone.mailfilter.views import BaseMasterView
 from raptus.mailcone.mfa_core_filter.interfaces import IFilterContainer
 from raptus.mailcone.mfa_simplematchfilter.interfaces import ISimpleMatchFilter
 from raptus.mailcone.mfa_simplematchfilter.contents import SimpleMatchFilter
 
-class AddSimpleMatchFilterView(grok.View):
+class AddSimpleMatchFilterView(BaseMasterView):
     """ Provide view container for viewlet which contains the generate add form """
     grok.context(IFilterContainer)
-    grok.template('master')
     grok.name('addSimpleMatchFilter')
     grok.require('mailfilter.view')
     
@@ -27,10 +27,9 @@ class AddSimpleMatchFilterViewlet(grok.Viewlet):
         return self.form.render()
 
     
-class SimpleMatchFilterView(grok.View):
+class SimpleMatchFilterView(BaseMasterView):
     """ View for simple match filter - redirect to parent object view """
     grok.context(ISimpleMatchFilter)
-    grok.template('master')
     grok.name('index')
     grok.require('mailfilter.view')
 
@@ -48,11 +47,10 @@ class SimpleMatchFilterMacro(grok.View):
     grok.template('simplematchfilter_macro')
     grok.require('mailfilter.view')
 
-class EditSimpleMatchFilterView(grok.View):
+class EditSimpleMatchFilterView(BaseMasterView):
     """ Provide view container for viewlet which contains the generate edit form """
     grok.context(ISimpleMatchFilter)
     grok.name('edit')
-    grok.template('master')
     grok.require('mailfilter.view')
     
 class EditSimpleMatchFilterViewlet(grok.Viewlet):

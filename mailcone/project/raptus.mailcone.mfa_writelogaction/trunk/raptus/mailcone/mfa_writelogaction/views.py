@@ -1,6 +1,8 @@
 import grok
 from zope.component import getMultiAdapter
 
+from raptus.mailcone.mailfilter.views import BaseMasterView
+
 from raptus.mailcone.mfa_core_action.interfaces import IActionContainer
 from raptus.mailcone.mailfilter.viewletmanagers import Main
 from raptus.mailcone.mfa_writelogaction.interfaces import (
@@ -10,10 +12,9 @@ from raptus.mailcone.mfa_writelogaction.interfaces import (
 )
 from raptus.mailcone.mfa_writelogaction.contents import WriteLogAction
 
-class AddWriteLogActionView(grok.View):
+class AddWriteLogActionView(BaseMasterView):
     """ Provide view container for viewlet which contains the generate add form """
     grok.context(IActionContainer)
-    grok.template('master')
     grok.name('addWriteLogAction')
     grok.require('mailfilter.view')
 
@@ -30,11 +31,10 @@ class AddWriteLogActionViewlet(grok.Viewlet):
     def render(self):
         return self.form.render()
 
-class WriteLogActionView(grok.View):
+class WriteLogActionView(BaseMasterView):
     """ View for write log action - redirect to parent object view """
     grok.context(IWriteLogAction)
     grok.name('index')
-    grok.template('master')
     grok.require('mailfilter.view')
 
 class WriteLogActionViewlet(grok.Viewlet):
@@ -51,11 +51,10 @@ class WriteLogActionMacro(grok.View):
     grok.template('writelogaction_macro')
     grok.require('mailfilter.view')
 
-class EditWriteLogActionView(grok.View):
+class EditWriteLogActionView(BaseMasterView):
     """ Provide view container for viewlet which contains the generate edit form """
     grok.context(IWriteLogAction)
     grok.name('edit')
-    grok.template('master')
     grok.require('mailfilter.view')
 
 class EditWriteLogActionViewlet(grok.Viewlet):
@@ -86,10 +85,9 @@ class DeleteWriteLogActionView(grok.View):
     def render(self):
         self.redirect(self.url(self.parent))
         
-class WriteLogActionSettingView(grok.View):
+class WriteLogActionSettingView(BaseMasterView):
     """ XXX """
     grok.context(IWriteLogActionSettingObject)
-    grok.template('master')
     grok.name('index')
     grok.require('mailfilter.manageUsers')
     
@@ -104,10 +102,9 @@ class WriteLogActionSettingViewlet(grok.Viewlet):
     grok.view(WriteLogActionSettingView)
     grok.viewletmanager(Main)
     
-class AddLogfileView(grok.View):
+class AddLogfileView(BaseMasterView):
     """ XXX """
     grok.context(IWriteLogActionSettingObject)
-    grok.template('master')
     grok.require('mailfilter.manageUsers')
     grok.name('addLogfile')
     
@@ -123,10 +120,9 @@ class AddLogfileViewlet(grok.Viewlet):
     def render(self):
         return self.form.render()
     
-class LogfileView(grok.View):
+class LogfileView(BaseMasterView):
     """ XXX """
     grok.context(ILogfile)
-    grok.template('master')
     grok.require('mailfilter.manageUsers')
     grok.name('index')
     
@@ -137,10 +133,9 @@ class LogfileViewlet(grok.Viewlet):
     grok.viewletmanager(Main)
     grok.view(LogfileView)
     
-class EditLogfileView(grok.View):
+class EditLogfileView(BaseMasterView):
     """ XXX """
     grok.context(ILogfile)
-    grok.template('master')
     grok.require('mailfilter.manageUsers')
     grok.name('edit')
     
@@ -157,10 +152,9 @@ class EditLogfileViewlet(grok.Viewlet):
     def render(self):
         return self.form.render()
     
-class LogfileMacro(grok.View):
+class LogfileMacro(BaseMasterView):
     """ Provide macros for logfile contents """
     grok.context(ILogfile)
-    grok.name('macro')
     grok.template('logfile_macro')
     grok.require('mailfilter.manageUsers')
     

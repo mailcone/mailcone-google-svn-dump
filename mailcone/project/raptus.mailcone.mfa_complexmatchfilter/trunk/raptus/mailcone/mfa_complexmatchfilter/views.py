@@ -1,15 +1,16 @@
 import grok
 from zope.component import getMultiAdapter
 
+from raptus.mailcone.mailfilter.views import BaseMasterView
+
 from raptus.mailcone.mfa_core_filter.interfaces import IFilterContainer
 from raptus.mailcone.mailfilter.viewletmanagers import Main
 from raptus.mailcone.mfa_complexmatchfilter.interfaces import IComplexMatchFilter
 from raptus.mailcone.mfa_complexmatchfilter.contents import ComplexMatchFilter
 
-class AddComplexMatchFilterView(grok.View):
+class AddComplexMatchFilterView(BaseMasterView):
     """ Provide view container for viewlet which contains the generate add form """
     grok.context(IFilterContainer)
-    grok.template('master')
     grok.name('addComplexMatchFilter')
     grok.require('mailfilter.view')
 
@@ -26,11 +27,10 @@ class AddComplexMatchFilterViewlet(grok.Viewlet):
     def render(self):
         return self.form.render()
 
-class ComplexMatchFilterView(grok.View):
+class ComplexMatchFilterView(BaseMasterView):
     """ View for complex match filter - redirect to parent object view """
     grok.context(IComplexMatchFilter)
     grok.name('index')
-    grok.template('master')
     grok.require('mailfilter.view')
     
 class ComplexMatchFilterViewlet(grok.Viewlet):
@@ -40,18 +40,16 @@ class ComplexMatchFilterViewlet(grok.Viewlet):
     grok.viewletmanager(Main)
     grok.view(ComplexMatchFilterView)
 
-class ComplexMatchFilterMacro(grok.View):
+class ComplexMatchFilterMacro(BaseMasterView):
     """ Provide an html snippet for complex match filters """
     grok.context(IComplexMatchFilter)
-    grok.name('macro')
     grok.template('complexmatchfilter_macro')
     grok.require('mailfilter.view')
 
-class EditComplexMatchFilterView(grok.View):
+class EditComplexMatchFilterView(BaseMasterView):
     """ Provide view container for viewlet which contains the generate edit form """
     grok.context(IComplexMatchFilter)
     grok.name('edit')
-    grok.template('master')
     grok.require('mailfilter.view')
 
 class EditComplexMatchFilterViewlet(grok.Viewlet):
