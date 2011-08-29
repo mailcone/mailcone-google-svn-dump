@@ -24,7 +24,7 @@ class ComplexMatchFilterJSExtender(grok.GlobalUtility):
     jsExtensions = []
     
     def __init__(self):
-        library = Library('from raptus.mailcone.mfa_complexmatchfilter', 'static')
+        library = Library('raptus.mailcone.mfa_complexmatchfilter', 'static')
         extension = Resource(library, 'complexmatchfilter_jsextender.js', depends=[rulesetJsExtender])
         self.jsExtensions.append(extension)
 

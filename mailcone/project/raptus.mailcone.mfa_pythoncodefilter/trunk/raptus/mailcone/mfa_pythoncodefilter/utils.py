@@ -24,7 +24,7 @@ class PythonCodeFilterJSExtender(grok.GlobalUtility):
     jsExtensions = []
     
     def __init__(self):
-        library = Library('mfa_pythoncodefilter', 'static')
+        library = Library('raptus.mailcone.mfa_pythoncodefilter', 'static')
         extension = Resource(library, 'pythoncodefilter_jsextender.js', depends=[rulesetJsExtender])
         self.jsExtensions.append(extension)
 

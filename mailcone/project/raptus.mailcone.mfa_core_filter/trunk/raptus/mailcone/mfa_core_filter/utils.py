@@ -22,7 +22,7 @@ class FilterJSExtender(grok.GlobalUtility):
     jsExtensions = []
     
     def __init__(self):
-        library = Library('mfa_core_filter', 'static')
+        library = Library('raptus.mailcone.mfa_core_filter', 'static')
         extension = Resource(library, 'filter_jsextender.js', depends=[jquery])
         self.jsExtensions.append(extension)
 

@@ -14,7 +14,7 @@ class CustomerConfigletJSExtender(grok.GlobalUtility):
     jsExtensions = []
     
     def __init__(self):
-        library = Library('mfa_core_customer', 'static')
+        library = Library('raptus.mailcone.mfa_core_customer', 'static')
         extension = Resource(library, 'customer_jsextender.js', depends=[jquery])
         self.jsExtensions.append(extension)
 

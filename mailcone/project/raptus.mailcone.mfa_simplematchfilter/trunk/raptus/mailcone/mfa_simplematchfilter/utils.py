@@ -25,7 +25,7 @@ class SimpleMatchFilterJSExtender(grok.GlobalUtility):
     jsExtensions = []
     
     def __init__(self):
-        library = Library('mfa_simplematchfilter', 'static')
+        library = Library('raptus.mailcone.mfa_simplematchfilter', 'static')
         extension = Resource(library, 'simplematchfilter_jsextender.js', depends=[rulesetJsExtender])
         self.jsExtensions.append(extension)
 
