@@ -71,7 +71,7 @@ class RuleSetConfigletJSExtender(grok.GlobalUtility):
     jsExtensions = []
     
     def __init__(self):
-        library = Library('mailfilter', 'static')
+        library = Library('raptus.mailcone.mailfilter', 'static')
         extension = Resource(library, 'ruleset_jsextender.js', depends=[jquery])
         self.jsExtensions.append(extension)
 
@@ -85,7 +85,7 @@ class AppConfigletJSExtender(grok.GlobalUtility):
     jsExtensions = []
     
     def __init__(self):
-        library = Library('mailfilter', 'static')
+        library = Library('raptus.mailcone.mailfilter', 'static')
         extension = Resource(library, 'appconfiglet_jsextender.js', depends=[jquery])
         self.jsExtensions.append(extension)
 
@@ -99,7 +99,7 @@ class UserConfigletJSExtender(grok.GlobalUtility):
     jsExtensions = []
     
     def __init__(self):
-        library = Library('mailfilter', 'static')
+        library = Library('raptus.mailcone.mailfilter', 'static')
         extension = Resource(library, 'user_jsextender.js', depends=[jquery])
         self.jsExtensions.append(extension)
 

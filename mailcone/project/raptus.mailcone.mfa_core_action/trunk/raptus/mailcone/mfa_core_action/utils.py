@@ -36,7 +36,7 @@ class ActionJSExtender(grok.GlobalUtility):
     jsExtensions = []
     
     def __init__(self):
-        library = Library('mfa_core_action', 'static')
+        library = Library('raptus.mailcone.mfa_core_action', 'static')
         extension = Resource(library, 'action_jsextender.js', depends=[jquery])
         self.jsExtensions.append(extension)
 

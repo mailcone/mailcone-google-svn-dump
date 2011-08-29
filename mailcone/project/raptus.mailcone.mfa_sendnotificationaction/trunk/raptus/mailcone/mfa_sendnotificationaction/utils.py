@@ -24,7 +24,7 @@ class SendNotificationActionJSExtender(grok.GlobalUtility):
     jsExtensions = []
     
     def __init__(self):
-        library = Library('mfa_sendnotificationaction', 'static')
+        library = Library('raptus.mailcone.mfa_sendnotificationaction', 'static')
         extension = Resource(library, 'sendnotificationaction_jsextender.js', depends=[rulesetJsExtender])
         self.jsExtensions.append(extension)
 

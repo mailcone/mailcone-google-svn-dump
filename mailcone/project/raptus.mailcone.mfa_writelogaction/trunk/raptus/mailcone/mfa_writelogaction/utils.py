@@ -39,7 +39,7 @@ class WrtieLogActionJSExtender(grok.GlobalUtility):
     jsExtensions = []
     
     def __init__(self):
-        library = Library('mfa_writelogaction', 'static')
+        library = Library('raptus.mailcone.mfa_writelogaction', 'static')
         extension = Resource(library, 'writelogaction_jsextender.js', depends=[rulesetJsExtender])
         self.jsExtensions.append(extension)
 
