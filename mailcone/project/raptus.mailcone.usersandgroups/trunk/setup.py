@@ -24,6 +24,7 @@ setup(name='raptus.mailcone.usersandgroups',
       zip_safe=False,
       install_requires=[
           # -*- Extra requirements: -*-
+          'setuptools',
           'fanstatic',
           'zope.fanstatic',
           'js.jquery',
