@@ -19,15 +19,15 @@ setup(name='raptus.mailcone.app',
       url='',
       license='GPL',
       packages=find_packages(exclude=['ez_setup']),
-      namespace_packages=['raptus.mailcone'],
+      namespace_packages=['raptus','raptus.mailcone'],
       include_package_data=True,
       zip_safe=False,
       install_requires=[
+          # -*- Extra requirements: -*-
           'setuptools',
           'grok',
           'grokui.admin',
           'grokcore.startup',
-          # -*- Extra requirements: -*-
           'raptus.mailcone.core',
           'raptus.mailcone.layout',
       ],
