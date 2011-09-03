@@ -1,16 +1,7 @@
 <configure xmlns="http://namespaces.zope.org/zope"
            i18n_domain="mailfilter">
 
-  <include package="raptus.mailcone.mailfilter" />
-  <include package="raptus.mailcone.mfa_core_customer" />
-  <include package="raptus.mailcone.mfa_core_auth" />
-  <include package="raptus.mailcone.mfa_core_action" />
-  <include package="raptus.mailcone.mfa_core_filter" />
-  <include package="raptus.mailcone.mfa_simplematchfilter" />
-  <include package="raptus.mailcone.mfa_complexmatchfilter" />
-  <include package="raptus.mailcone.mfa_pythoncodefilter" />
-  <include package="raptus.mailcone.mfa_sendnotificationaction" />
-  <include package="raptus.mailcone.mfa_writelogaction" />
+    <include package="raptus.mailcone.app" />
 
     <configure i18n_domain="mailfilter">
 
