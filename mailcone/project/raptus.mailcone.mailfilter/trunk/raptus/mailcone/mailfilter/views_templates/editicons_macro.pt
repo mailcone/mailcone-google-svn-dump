@@ -7,7 +7,7 @@
 		<img src="#"
 			 class="icon"
 			 title="add"
-			 tal:attributes="src string:${view/application_url}/fanstatic/mailfilter/add-icon.jpg;
+			 tal:attributes="src string:${view/application_url}/fanstatic/raptus.mailcone.mailfilter/add-icon.jpg;
 			 			     title addTitle" />
 	</a>
 </metal:subblock>
@@ -19,7 +19,7 @@
 		<img src="#"
 			 class="icon"
 			 title="add"
-			 tal:attributes="src string:${view/application_url}/fanstatic/mailfilter/load-icon.jpg;
+			 tal:attributes="src string:${view/application_url}/fanstatic/raptus.mailcone.mailfilter/load-icon.jpg;
 			 			     title loadTitle" />
 	</a>
 </metal:subblock>
@@ -30,7 +30,7 @@
 		<img src="#"
 			 class="icon"
 			 title="edit"
-			 tal:attributes="src string:${view/application_url}/fanstatic/mailfilter/moveup-icon.jpg" />
+			 tal:attributes="src string:${view/application_url}/fanstatic/raptus.mailcone.mailfilter/moveup-icon.jpg" />
 	</a>
 	
 	<a class="moveDown"
@@ -38,7 +38,7 @@
 		<img src="#"
 			 class="icon"
 			 title="edit"
-			 tal:attributes="src string:${view/application_url}/fanstatic/mailfilter/movedown-icon.jpg" />
+			 tal:attributes="src string:${view/application_url}/fanstatic/raptus.mailcone.mailfilter/movedown-icon.jpg" />
 	</a>
 
 	<metal:subblock define-macro="onlyEdit">
@@ -48,7 +48,7 @@
 			<img src="#"
 				 class="icon"
 				 title="edit"
-				 tal:attributes="src string:${view/application_url}/fanstatic/mailfilter/edit-icon.png" />
+				 tal:attributes="src string:${view/application_url}/fanstatic/raptus.mailcone.mailfilter/edit-icon.png" />
 		</a>
 		
 		<a class="#"
@@ -57,7 +57,7 @@
 			<img src="#"
 				 class="icon"
 				 title="delete"
-				 tal:attributes="src string:${view/application_url}/fanstatic/mailfilter/delete-icon.png" />
+				 tal:attributes="src string:${view/application_url}/fanstatic/raptus.mailcone.mailfilter/delete-icon.png" />
 		</a>
 	</metal:subblock>
 </metal:block>
