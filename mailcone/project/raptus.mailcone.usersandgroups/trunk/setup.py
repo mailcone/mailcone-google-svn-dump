@@ -19,18 +19,12 @@ setup(name='raptus.mailcone.usersandgroups',
       url='',
       license='GPL',
       packages=find_packages(exclude=['ez_setup']),
-      namespace_packages=['raptus.mailcone'],
+      namespace_packages=['raptus','raptus.mailcone'],
       include_package_data=True,
       zip_safe=False,
       install_requires=[
           # -*- Extra requirements: -*-
           'setuptools',
-          'fanstatic',
-          'zope.fanstatic',
-          'js.jquery',
-          'js.jqueryui',
-          'megrok.navigation',
-          'megrok.form',
 
       ],
       entry_points="""
