@@ -3,7 +3,7 @@ import os
 
 version = '1.0a1'
 
-setup(name='raptus.mailcone.app',
+setup(name='raptus.mailcone.auth',
       version=version,
       description="",
       long_description=open("README.txt").read() + "\n" +
@@ -25,12 +25,7 @@ setup(name='raptus.mailcone.app',
       install_requires=[
           # -*- Extra requirements: -*-
           'setuptools',
-          'grok',
-          'grokui.admin',
-          'grokcore.startup',
-          'raptus.mailcone.core',
-          'raptus.mailcone.layout',
-          'raptus.mailcone.auth',
+
       ],
       entry_points="""
       # -*- Entry points: -*-
