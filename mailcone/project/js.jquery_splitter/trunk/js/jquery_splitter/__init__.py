@@ -1,7 +1,7 @@
 from fanstatic import Library, Resource
 from js.jquery import jquery
 
-library = Library('splitter.js', 'resources')
+library = Library('jquery_splitter', 'resources')
 
 splitter_js = Resource(
     library,
