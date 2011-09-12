@@ -3,7 +3,7 @@ import os
 
 version = '1.0a1'
 
-setup(name='raptus.mailcone.core',
+setup(name='raptus.mailcone.rules',
       version=version,
       description="",
       long_description=open("README.txt").read() + "\n" +
@@ -25,13 +25,6 @@ setup(name='raptus.mailcone.core',
       install_requires=[
           # -*- Extra requirements: -*-
           'setuptools',
-          'psycopg2',
-          'raptus.mailcone.app',
-          'raptus.mailcone.layout',
-          'raptus.mailcone.customers',
-          'raptus.mailcone.rules',
-          'z3c.relationfield',
-          'hurry.query',
 
       ],
       entry_points="""
