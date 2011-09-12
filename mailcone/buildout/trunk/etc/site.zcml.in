@@ -1,9 +1,9 @@
 <configure xmlns="http://namespaces.zope.org/zope"
-           i18n_domain="mailfilter">
+           i18n_domain="raptus.mailcone">
 
     <include package="raptus.mailcone.app" />
 
-    <configure i18n_domain="mailfilter">
+    <configure i18n_domain="raptus.mailcone">
 
       <unauthenticatedPrincipal id="zope.anybody"
                                 title="Unauthenticated User" />
