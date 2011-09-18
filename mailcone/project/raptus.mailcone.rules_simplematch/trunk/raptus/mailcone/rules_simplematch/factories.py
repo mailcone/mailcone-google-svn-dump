@@ -8,6 +8,7 @@ from raptus.mailcone.rules.factories import BaseFactory
 
 
 from raptus.mailcone.rules_simplematch import _
+from raptus.mailcone.rules_simplematch.interfaces import ISimpleMatchItem
 
 
 
@@ -18,6 +19,7 @@ class SimpleMatchFactory(BaseFactory):
     
     title = _('Simple match')
     description = _('no idee was this thing do ???')
+    form_fields = grok.AutoFields(ISimpleMatchItem)
 
     def box_input(self):
         li = list()

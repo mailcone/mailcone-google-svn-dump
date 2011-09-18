@@ -1,2 +1,2 @@
 from zope.i18nmessageid import MessageFactory
-_ = MessageFactory('raptus.mailcone.simplematch')
+_ = MessageFactory('raptus.mailcone.rules_simplematch')
