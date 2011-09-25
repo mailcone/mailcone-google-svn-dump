@@ -1,12 +1,12 @@
 from fanstatic import Library, Resource
 from js.jquery import jquery
 
-library = Library('jquery_splitter', 'resources')
+library = Library('jquery_jqtransform', 'resources')
 
 
 jqtransform_css = Resource(
     library,
-    'jquery.jqtransform.css',
+    'jqtransform.css',
     depends=[]
 )
 
