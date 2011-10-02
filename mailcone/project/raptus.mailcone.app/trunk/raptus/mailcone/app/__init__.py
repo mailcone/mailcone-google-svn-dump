@@ -1,0 +1,1 @@
+from raptus.mailcone.app.startup import debug_application_factory, application_factory
