@@ -32,7 +32,9 @@ setup(name='raptus.mailcone.app',
           'raptus.mailcone.layout',
           'raptus.mailcone.auth',
       ],
-      entry_points="""
-      # -*- Entry points: -*-
-      """,
+      entry_points={
+                    'paste.app_factory':
+                        ['debug = raptus.mailcone.app:debug_application_factory',
+                         'main = raptus.mailcone.app:application_factory',]
+                    }
       )
