@@ -1,5 +1,7 @@
 [mailtosql]
 mail_database=mail_database
+attachments=attachments
+logs=logs
 
 
 [mail_database]
@@ -12,3 +14,10 @@ port=5432
 database=mails
 echo=True
 
+
+[attachments]
+output=${mailtosql_dir_attachments:paths}
+
+
+[logs]
+output=${mailtosql_dir_logs:paths}
