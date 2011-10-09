@@ -7,7 +7,10 @@ host = ${:host}
 port = ${:port}
 
 [pipeline:main]
-pipeline = accesslogging evalexception fanstatic grok
+pipeline = accesslogging
+           evalexception
+           fanstatic
+           mailcone
 
 [filter:accesslogging]
 use = egg:Paste#translogger
@@ -20,9 +23,21 @@ use = egg:fanstatic#fanstatic
 versioning = true
 recompute_hashes = true
 
-[app:grok]
-use = egg:grokcore.startup#debug
+[app:mailcone]
+use = egg:raptus.mailcone.app#debug
 exempt-exceptions = zope.security.interfaces.IUnauthorized
+mail_database=mail_database
+
+[mail_database]
+# look at sqlalchemy.engine.__init.__ and *.url for all options!
+username=mailcone
+password=
+drivername=postgresql
+host=localhost
+port=5432
+database=mails
+echo=True
+
 
 # Logging configuration
 
@@ -47,3 +62,8 @@ keys = generic
 
 [formatter_generic]
 format = %(asctime)s %(levelname)s [%(name)s] %(message)s
+
+
+
+
+
