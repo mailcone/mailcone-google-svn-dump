@@ -3,7 +3,10 @@
            i18n_domain="raptus.mailcone.app">
   
   <include package="grok" />
+  <includeOverrides package="raptus.mailcone.layout" file="overrides.zcml" />
+
   <includeDependencies package="." />
   <grok:grok package="." />
+
   
 </configure>
