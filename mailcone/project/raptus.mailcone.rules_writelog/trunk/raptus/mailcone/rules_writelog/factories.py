@@ -8,7 +8,7 @@ from raptus.mailcone.rules.factories import BaseFactory
 
 
 from raptus.mailcone.rules_writelog import _
-
+from raptus.mailcone.rules_writelog.contents import WriteLogItem
 
 
 class WriteLogFactory(BaseFactory):
@@ -18,6 +18,7 @@ class WriteLogFactory(BaseFactory):
     
     title = _('Write log')
     description = _('write defined message in a log file.')
+    ruleitem_class = WriteLogItem
 
     def box_input(self):
         li = list()
