@@ -22,16 +22,18 @@ class IOperator(interface.Interface):
 class ISimpleMatchItem(interfaces.IConditionItem):
     """ Interface for simple match filter
     """
-#    source = schema.Choice(title=u'source',
-#                           source = MailSources(),
-#                           required=True)
-    
+
+
+    needle = schema.TextLine(title=_('Needle'),
+                             required=True,
+                             description=_('a search string to find with the choosen operator'))
+
     operator = schema.Choice(title=_('Operator'),
                              vocabulary='raptus.mailcone.rules_simplematch.operators',
                              required=True)
     
-    needle = schema.TextLine(title=_('Search string'),
-                             required=True,
-                             description=_('a search string to find with the choosen operator'))
+    source = schema.Choice(title=_('Source'),
+                           vocabulary='raptus.mailcone.mails.mailattributes',
+                           required=True)
 
 

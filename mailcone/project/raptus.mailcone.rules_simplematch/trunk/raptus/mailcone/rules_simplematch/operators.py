@@ -8,6 +8,9 @@ from raptus.mailcone.rules_simplematch import _
 from raptus.mailcone.rules_simplematch import interfaces
 
 
+
+
+
 register = vocabulary.getVocabularyRegistry().register
 def vocabulary_operators(context):
     terms = list()
@@ -15,6 +18,7 @@ def vocabulary_operators(context):
         terms.append(vocabulary.SimpleTerm(value=operator.id, title=operator.title))
     return vocabulary.SimpleVocabulary(terms)
 register('raptus.mailcone.rules_simplematch.operators', vocabulary_operators)
+
 
 
 class BaseOperator(grok.GlobalUtility):
@@ -27,8 +31,11 @@ class BaseOperator(grok.GlobalUtility):
     def id(self):
         return getattr(self, 'grokcore.component.directive.name')
     
-    def apply(self, needle, source):
-        pass
+    def list(self, source):
+        if isinstance(source, (list, tuple,)):
+            return source
+        else:
+            return [source]
 
 
 
@@ -38,9 +45,12 @@ class OperatorIs(BaseOperator):
     title = _('Is')
 
     def apply(self, needle, source):
-        if filterCondition == source:
-            return True
-        return False
+        if not self.list(source):
+            return False
+        for val in self.list(source):
+            if needle != val:
+                return False
+        return True
 
 
 class OperatorIsNot(BaseOperator):
@@ -49,9 +59,12 @@ class OperatorIsNot(BaseOperator):
     title = _('Is not')
     
     def apply(self, needle, source):
-        if filterCondition != source:
-            return True
-        return False 
+        if not self.list(source):
+            return False
+        for val in self.list(source):
+            if needle == val:
+                return False
+        return True
 
 
 class OperatorContains(BaseOperator):
@@ -60,10 +73,12 @@ class OperatorContains(BaseOperator):
     title = _('Contains')
 
     def apply(self, needle, source):
-        funcRes = super(SimpleFilterOperatorContains, self).apply(filterCondition, source)
-        if funcRes != 0:
-            return True
-        return False
+        if not self.list(source):
+            return False
+        for val in self.list(source):
+            if not needle in val:
+                return False
+        return True
 
 
 class OperatorNotContains(BaseOperator):
@@ -72,10 +87,12 @@ class OperatorNotContains(BaseOperator):
     title = _('Does not contains')
 
     def apply(self, needle, source):
-        funcRes = super(SimpleFilterOperatorContains, self).apply(filterCondition, source)
-        if funcRes == 0:
-            return True
-        return False
+        if not self.list(source):
+            return False
+        for val in self.list(source):
+            if needle in val:
+                return False
+        return True
 
 
 class OperatorBeginsWith(BaseOperator):
@@ -84,8 +101,12 @@ class OperatorBeginsWith(BaseOperator):
     title = _('Begins with')
 
     def apply(self, needle, source):
-        funcRes = super(SimpleFilterOperatorContains, self).apply(filterCondition, source)
-        return funcRes
+        if not self.list(source):
+            return False
+        for val in self.list(source):
+            if not val.startswith(needle):
+                return False
+        return True
 
 
 class OperatorEndsWith(BaseOperator):
@@ -94,8 +115,12 @@ class OperatorEndsWith(BaseOperator):
     title = _('Ends with')
 
     def apply(self, needle, source):
-        funcRes = super(SimpleFilterOperatorContains, self).apply(filterCondition, source)
-        return funcRes
+        if not self.list(source):
+            return False
+        for val in self.list(source):
+            if not val.endswith(needle):
+                return False
+        return True
 
 
 
