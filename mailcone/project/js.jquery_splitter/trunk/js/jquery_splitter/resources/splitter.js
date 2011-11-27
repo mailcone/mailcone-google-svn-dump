@@ -77,8 +77,8 @@
             B.css(opts.origin, newPos+bar._DA)
                 .css(opts.split, splitter._DA-bar._DA-newPos).css(opts.fixed,  splitter._DF);
             // IE fires resize for us; all others pay cash
-            if ( !$.browser.msie )
-                panes.trigger("resize");
+            /*if ( !$.browser.msie )
+                panes.trigger("resize");*/
         }
         function dimSum(jq, dims) {
             // Opera returns -1 for missing min/max width, turn into 0
@@ -190,8 +190,9 @@
             }).trigger("resize");
         }
         else if ( opts.resizeToWidth && !$.browser.msie )
-            $(window).bind("resize", function(){
-                splitter.trigger("resize"); 
+            $(window).bind("resize", function(e){
+            	
+                splitter.triggerHandler("resize");
             });
 
         // Resize event handler; triggered immediately to set initial position
