@@ -19,6 +19,6 @@ class SimpleMatchFactory(BaseFactoryCondition):
     
     
     title = _('Simple match')
-    description = _('no idee was this thing do ???')
+    description = _('match a input with a simple rule. like: is, startswith, content...')
     form_fields = grok.AutoFields(ISimpleMatchItem)
     ruleitem_class = SimpleMatchItem

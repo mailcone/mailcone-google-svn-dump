@@ -13,9 +13,9 @@ class IRegexItem(interfaces.IConditionItem):
     """ Interface for regex match filter
     """
 
-    regex = schema.TextLine(title=_('Needle'),
+    regex = schema.TextLine(title=_('Regex'),
                              required=True,
-                             description=_('a search string to find with the choosen operator'))
+                             description=_('a regular expression'))
     
     source = schema.Choice(title=_('Source'),
                            vocabulary='raptus.mailcone.mails.mailattributes',
