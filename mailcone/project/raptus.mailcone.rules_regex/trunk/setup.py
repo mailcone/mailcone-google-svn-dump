@@ -3,7 +3,7 @@ import os
 
 version = '1.0a1'
 
-setup(name='raptus.mailcone.rules_complexmatch',
+setup(name='raptus.mailcone.rules_regex',
       version=version,
       description="",
       long_description=open("README.txt").read() + "\n" +
