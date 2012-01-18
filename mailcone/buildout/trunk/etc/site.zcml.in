@@ -5,7 +5,7 @@
 
       <!-- additional packages with no dependencies
            on core need to be register here!!-->
-    <include package="raptus.mailcone.rules_complexmatch" />
+    <include package="raptus.mailcone.rules_regex" />
     <include package="raptus.mailcone.rules_pythoncode" />
     <include package="raptus.mailcone.rules_sendmail" />
     <include package="raptus.mailcone.rules_simplematch" />
