@@ -1,5 +1,0 @@
-<script src="#" type="text/javascript"
-        tal:attributes="src static/buttonActions.js"></script>
-        
-<script src="#" type="text/javascript"
-        tal:attributes="src static/itemClickable.js"></script>
