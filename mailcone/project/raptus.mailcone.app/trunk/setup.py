@@ -31,6 +31,7 @@ setup(name='raptus.mailcone.app',
           'raptus.mailcone.core',
           'raptus.mailcone.layout',
           'raptus.mailcone.auth',
+          'raptus.mailcone.settings',
       ],
       entry_points={
                     'paste.app_factory':
