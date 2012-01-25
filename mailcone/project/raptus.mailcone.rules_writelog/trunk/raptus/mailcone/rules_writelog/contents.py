@@ -1,6 +1,8 @@
 import grok
 
 from raptus.mailcone.rules import contents
+from raptus.mailcone.rules.factories import BaseFactoryCondition
+
 from raptus.mailcone.rules_writelog import interfaces
 from raptus.mailcone.rules_writelog import _
 
@@ -10,7 +12,10 @@ from raptus.mailcone.rules_writelog import _
 
 class WriteLogItem(contents.BaseActionItem):
     grok.implements(interfaces.IWriteLogItem)
-    
+
+    path = ''
+    message = ''
+
     def process(self, charter):
         for mail in charter.mails:
             self.write(mail)
