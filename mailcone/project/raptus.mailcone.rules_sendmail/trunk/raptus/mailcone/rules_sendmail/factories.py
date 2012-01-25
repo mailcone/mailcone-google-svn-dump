@@ -1,25 +1,20 @@
-import json
 import grok
 
-from raptus.mailcone.core import utils
-
-from raptus.mailcone.rules import interfaces
-from raptus.mailcone.rules.factories import BaseFactory
-
+from raptus.mailcone.rules.factories import BaseFactoryAction
+from raptus.mailcone.rules.interfaces import IActionItemFactory
 
 from raptus.mailcone.rules_sendmail import _
+from raptus.mailcone.rules_sendmail import interfaces
+from raptus.mailcone.rules_sendmail.contents import SendMailItem
 
 
 
-class SendMailFactory(BaseFactory):
+class SendMailFactory(BaseFactoryAction):
     grok.name('raptus.mailcone.rules.sendmail')
-    grok.implements(interfaces.IActionItemFactory)
+    grok.implements(IActionItemFactory)
     
     
     title = _('Send email')
     description = _('send a notification mail to a given address.')
-
-    def box_input(self):
-        li = list()
-        li.append(dict(title=self._translate(_('input')) ))
-        return li
+    form_fields = grok.AutoFields(interfaces.ISendMailItem)
+    ruleitem_class = SendMailItem
