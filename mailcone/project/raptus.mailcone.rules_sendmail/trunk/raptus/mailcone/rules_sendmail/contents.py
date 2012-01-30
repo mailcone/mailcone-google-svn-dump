@@ -21,6 +21,7 @@ class SendMailItem(contents.BaseActionItem):
     subject = ''
     message = ''
     
+    @contents.process
     def process(self, charter):
         for mail in charter.mails:
             self.send(mail)

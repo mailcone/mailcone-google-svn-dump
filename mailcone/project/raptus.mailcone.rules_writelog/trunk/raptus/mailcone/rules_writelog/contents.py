@@ -16,6 +16,7 @@ class WriteLogItem(contents.BaseActionItem):
     path = ''
     message = ''
 
+    @contents.process
     def process(self, charter):
         for mail in charter.mails:
             self.write(mail)
