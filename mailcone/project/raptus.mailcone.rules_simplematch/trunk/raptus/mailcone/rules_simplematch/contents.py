@@ -21,6 +21,6 @@ class SimpleMatchItem(contents.BaseConditionItem):
         val = getattr(mail, self.source)
         if not val:
             val = ''
-        return operator.apply(self.needle, val)
+        return operator.apply(self.needle, unicode(val))
 
 
