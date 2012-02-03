@@ -15,7 +15,7 @@ register = vocabulary.getVocabularyRegistry().register
 def vocabulary_operators(context):
     terms = list()
     for name, operator in component.getUtilitiesFor(interfaces.IOperator):
-        terms.append(vocabulary.SimpleTerm(value=operator.id, title=operator.title))
+        terms.append(vocabulary.SimpleTerm(value=name, title=operator.title))
     return vocabulary.SimpleVocabulary(terms)
 register('raptus.mailcone.rules_simplematch.operators', vocabulary_operators)
 
@@ -26,10 +26,6 @@ class BaseOperator(grok.GlobalUtility):
     grok.baseclass()
     
     title = None
-    
-    @property
-    def id(self):
-        return getattr(self, 'grokcore.component.directive.name')
     
     def list(self, source):
         if isinstance(source, (list, tuple,)):

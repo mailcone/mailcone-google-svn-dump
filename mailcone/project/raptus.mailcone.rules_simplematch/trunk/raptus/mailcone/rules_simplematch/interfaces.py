@@ -11,7 +11,6 @@ class IOperator(interface.Interface):
     """ define operators utilities for a simple match rule
     """
     
-    id = interface.Attribute('id of the utility must be unique')
     title = interface.Attribute('display name. should be a zope.i18n')
     
     def apply(self, needle, source):
