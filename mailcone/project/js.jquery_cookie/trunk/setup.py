@@ -1,9 +1,9 @@
 from setuptools import setup, find_packages
 import os
 
-version = '1.0a1'
+version = '1.0.0'
 
-setup(name='raptus.mailcone.cronjob',
+setup(name='js.jquery_cookie',
       version=version,
       description="",
       long_description=open("README.txt").read() + "\n" +
@@ -19,20 +19,18 @@ setup(name='raptus.mailcone.cronjob',
       url='',
       license='GPL',
       packages=find_packages(exclude=['ez_setup']),
-      namespace_packages=['raptus','raptus.mailcone'],
+      namespace_packages=['js'],
       include_package_data=True,
       zip_safe=False,
       install_requires=[
           # -*- Extra requirements: -*-
-          'setuptools',
-          'raptus.mailcone.core',
-          'raptus.mailcone.customers',
-          'raptus.mailcone.rules',
-          'raptus.mailcone.persistentlog',
-          'z3c.taskqueue',
-
+        'fanstatic',
+        'setuptools',
+        'js.jquery'
       ],
-      entry_points="""
-      # -*- Entry points: -*-
-      """,
+    entry_points={
+        'fanstatic.libraries': [
+            'jquery_cookie.js = js.jquery_cookie:library',
+            ],
+        },
       )

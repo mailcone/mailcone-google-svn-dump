@@ -3,7 +3,7 @@ import os
 
 version = '1.0a1'
 
-setup(name='raptus.mailcone.layout',
+setup(name='raptus.mailcone.persistentlog',
       version=version,
       description="",
       long_description=open("README.txt").read() + "\n" +
@@ -23,30 +23,10 @@ setup(name='raptus.mailcone.layout',
       include_package_data=True,
       zip_safe=False,
       install_requires=[
-          # -*- Extra requirements: -*-
           'setuptools',
-          'grokcore.chameleon',
-          'grokcore.layout',
-          'fanstatic',
-          'zope.fanstatic',
-          'js.jquery',
-          'js.jqueryui',
-          'js.jquery_datatables',
-          'js.jquery_elastic',
-          'js.jquery_splitter',
-          'js.jquery_cookie',
-          'js.jquery_jqtransform',
-          'js.codemirror',
-          'megrok.navigation',
-          'megrok.form',
-          'megrok.rendersource',
-          'zope.app.renderer',
-          'horae.datetime',
-          
-
+          'raptus.mailcone.core',
       ],
-      entry_points={
-          'fanstatic.libraries': [
-              'raptus.mailcone.layout = raptus.mailcone.layout.resource:library',
-          ]
-      })
+      entry_points="""
+      # -*- Entry points: -*-
+      """,
+      )
