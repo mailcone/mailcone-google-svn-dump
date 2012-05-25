@@ -1,9 +1,10 @@
 from zope import schema
+from zope import interface
+
 from raptus.mailcone.rules import interfaces
+from raptus.mailcone.layout.formlib import ProposeTextField
 
 from raptus.mailcone.rules_sendmail import _
-
-
 
 
 
@@ -15,10 +16,12 @@ class ISendMailItem(interfaces.IActionItem):
                                  required=True,
                                  description=_('a list of email addresses to send the message.'))
 
-    subject = schema.TextLine(title=_('Subject'),
+    subject = ProposeTextField(title=_('Subject'),
                               required=True,
-                              description=_('the subject to write in the mail header.'))
+                              description=_('the subject to write in the mail header.'),
+                              vocabulary='raptus.mailcone.rule_sendmail.propose')
 
-    message = schema.Text(title=_('Message'),
-                          required=True,
-                          description=_('the message to write in the mail.'))
+    message = ProposeTextField(title=_('Message'),
+                               required=True,
+                               description=_('the message to write in the mail..'),
+                               vocabulary='raptus.mailcone.rule_sendmail.propose')

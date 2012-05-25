@@ -19,4 +19,4 @@ class IWriteLogItem(interfaces.IActionItem):
     message = ProposeTextField(title=_('Message'),
                                required=True,
                                description=_('the message to write in logfile.'),
-                               vocabulary='raptus.mailcone.mails.mailattributes')
+                               vocabulary='raptus.mailcone.rule_sendmail.propose')

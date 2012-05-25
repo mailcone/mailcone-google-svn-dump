@@ -1,5 +1,6 @@
 import grok
 
+from raptus.mailcone.core import utils
 from raptus.mailcone.rules import contents
 from raptus.mailcone.rules.factories import BaseFactoryCondition
 
@@ -24,21 +25,17 @@ class WriteLogItem(contents.BaseActionItem):
     def test(self, mail, factory):
         try:
             self.write(mail)
-            mapping = dict(factory=factory.title, title=self.title, path=self.path)
-            msg = 'Rule <${factory}@${title}> successfully write a log at ${path}'
-            return self.translate(_(msg, mapping=mapping))
+            mapping = dict(factory=factory.title, title=self.title, path=self.path, message=self.get_message(mail))
+            msg = 'Rule <${factory}@${title}> successfully write a log at ${path} \nmessage: ${message}'
+            return self.translate(_(msg, mapping=mapping), utils.getRequest())
         except Exception, e:
             return str(e)
     
     def write(self, mail):
         with open(self.path, 'a') as f:
-            f.write(self.message)
+            f.write(self.get_message(mail))
             f.write('\r\n')
         f.close()
-
-
-
-
 
 
 
