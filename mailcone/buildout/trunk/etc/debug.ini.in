@@ -27,6 +27,7 @@ recompute_hashes = true
 use = egg:raptus.mailcone.app#debug
 exempt-exceptions = zope.security.interfaces.IUnauthorized
 mail_database=mail_database
+ldap=ldap
 
 [mail_database]
 # look at sqlalchemy.engine.__init.__ and *.url for all options!
@@ -38,6 +39,32 @@ port=5432
 database=mails
 echo=True
 
+[ldap]
+# use a additional file instead this config.
+# this additional file will be parsed with standard
+# python ConfigParser. Section name is [ldap] and
+# the options are the same as here.
+# for no additional file leave "config_file" empty
+
+config_file=${buildout:directory}/raptus_ldap.cfg
+# allow cache. For disabling use 0
+cache_expire=1200
+host=
+port=
+useSSL=
+bindDN=
+bindPassword=
+
+# read ldappas.interface.ILDAPAdapter
+searchBase=
+searchScope=
+groupsSearchBase=
+groupsSearchScope=
+loginAttribute=
+principalIdPrefix=
+idAttribute=
+titleAttribute=
+groupIdAttribute=
 
 # Logging configuration
 
