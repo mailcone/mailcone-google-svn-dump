@@ -2,6 +2,7 @@
 mail_database=mail_database
 attachments=attachments
 logs=logs
+backup=backup
 
 
 [mail_database]
@@ -14,6 +15,11 @@ port=5432
 database=mails
 echo=True
 
+
+[backup]
+# path where mails are stored as file. file is  1by1 the original input stream.
+# leave empty if you don't want backup.
+backup=${buildout:directory}/var/backupmails
 
 [attachments]
 output=${mailtosql_dir_attachments:paths}
