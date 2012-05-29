@@ -55,15 +55,23 @@ useSSL=
 bindDN=
 bindPassword=
 
-# read ldappas.interface.ILDAPAdapter
+# The LDAP search base where principals are found.
 searchBase=
+# The LDAP search scope used to find principals.
 searchScope=
+# The LDAP search base where groups are found.
 groupsSearchBase=
+# THe LDAP search scope used to find groups.
 groupsSearchScope=
+# The LDAP attribute used to find principals.
 loginAttribute=
+# The prefix to add to all principal ids.
 principalIdPrefix=
+# The LDAP attribute used to determine a principal's id.
 idAttribute=
+# The LDAP attribute used to determine a principal's title.
 titleAttribute=
+# The LDAP attribute (on a group entry) used to determine the group's id.
 groupIdAttribute=
 
 # Logging configuration
