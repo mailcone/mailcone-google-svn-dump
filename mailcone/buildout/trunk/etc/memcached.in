@@ -1,0 +1,21 @@
+#!/bin/bash
+
+COMMAND="${memcached:location}/bin/memcached -s ${memcached:socket} -P ${memcached:pid}"
+
+if [ "$1" == "start" ]
+    then
+    $COMMAND -d
+  elif [ "$1" == "stop" ]
+    then
+    kill  `cat ${memcached:pid}`; rm ${memcached:pid};
+  elif [ "$1" == "fg" ]
+    then
+    $COMMAND
+  else
+  echo "memcached [fg|start|stop]"
+  echo ""
+  echo "Use command fg, start or stop to control memcached server"
+fi
+
+
+

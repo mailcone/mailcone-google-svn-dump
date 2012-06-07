@@ -36,7 +36,7 @@ password=
 drivername=postgresql
 host=localhost
 port=5432
-database=mails
+database=${postgres-init:dbapp}
 echo=True
 
 [ldap]
