@@ -4,6 +4,7 @@ from zope import component
 
 from zope.schema import vocabulary
 
+from raptus.mailcone.rules import exceptions
 from raptus.mailcone.rules_simplematch import _
 from raptus.mailcone.rules_simplematch import interfaces
 
@@ -33,6 +34,18 @@ class BaseOperator(grok.GlobalUtility):
         else:
             return [source]
 
+    def apply_operator(self, needle, source):
+        raise NotImplementedError('subclass and override apply_operator')
+
+    def apply(self, needle, source):
+        if needle is None:
+            raise exceptions.RuleItemException(_('Needle is not defined'), self)
+        if source is None:
+            return False
+        if not len(self.list(source)):
+            return False
+        return self.apply_operator(needle, source)
+
 
 
 class OperatorIs(BaseOperator):
@@ -40,9 +53,7 @@ class OperatorIs(BaseOperator):
     
     title = _('Is')
 
-    def apply(self, needle, source):
-        if not self.list(source):
-            return False
+    def apply_operator(self, needle, source):
         for val in self.list(source):
             if needle != val:
                 return False
@@ -54,9 +65,7 @@ class OperatorIsNot(BaseOperator):
     
     title = _('Is not')
     
-    def apply(self, needle, source):
-        if not self.list(source):
-            return False
+    def apply_operator(self, needle, source):
         for val in self.list(source):
             if needle == val:
                 return False
@@ -68,9 +77,7 @@ class OperatorContains(BaseOperator):
     
     title = _('Contains')
 
-    def apply(self, needle, source):
-        if not self.list(source):
-            return False
+    def apply_operator(self, needle, source):
         for val in self.list(source):
             if not needle in val:
                 return False
@@ -82,9 +89,7 @@ class OperatorNotContains(BaseOperator):
     
     title = _('Does not contains')
 
-    def apply(self, needle, source):
-        if not self.list(source):
-            return False
+    def apply_operator(self, needle, source):
         for val in self.list(source):
             if needle in val:
                 return False
@@ -96,9 +101,7 @@ class OperatorBeginsWith(BaseOperator):
     
     title = _('Begins with')
 
-    def apply(self, needle, source):
-        if not self.list(source):
-            return False
+    def apply_operator(self, needle, source):
         for val in self.list(source):
             if not val.startswith(needle):
                 return False
@@ -110,9 +113,7 @@ class OperatorEndsWith(BaseOperator):
     
     title = _('Ends with')
 
-    def apply(self, needle, source):
-        if not self.list(source):
-            return False
+    def apply_operator(self, needle, source):
         for val in self.list(source):
             if not val.endswith(needle):
                 return False

@@ -27,7 +27,7 @@ class WriteLogItem(contents.BaseActionItem):
             self.write(mail)
             mapping = dict(factory=factory.title, title=self.title, path=self.path, message=self.get_message(mail))
             msg = 'Rule <${factory}@${title}> successfully write a log at ${path} \nmessage: ${message}'
-            return self.translate(_(msg, mapping=mapping), utils.getRequest())
+            return self.translate(_(msg, mapping=mapping))
         except Exception, e:
             return str(e)
     

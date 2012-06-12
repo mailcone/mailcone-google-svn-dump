@@ -19,8 +19,6 @@ class SimpleMatchItem(contents.BaseConditionItem):
     def check(self, mail):
         operator = component.getUtility(interfaces.IOperator, name=self.operator)
         val = getattr(mail, self.source)
-        if not val:
-            val = ''
         return operator.apply(self.needle, unicode(val))
 
 
