@@ -21,6 +21,13 @@ use the -c option to specify an alternate configuration file.
 import os, shutil, sys, tempfile, textwrap, urllib, urllib2, subprocess
 from optparse import OptionParser
 
+
+# fix missing directory eggs
+# this is required with the new buildout version
+if not os.path.exists('eggs'):
+    os.mkdir('eggs')
+
+
 if sys.platform == 'win32':
     def quote(c):
         if ' ' in c:
