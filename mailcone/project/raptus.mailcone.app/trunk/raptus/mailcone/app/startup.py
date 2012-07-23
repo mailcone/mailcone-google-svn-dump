@@ -8,11 +8,21 @@ from raptus.mailcone.app import config
 
 
 
+def raw_configurator(ini_file, local_conf_key='app:mailcone', here=__file__, zope_conf=''):
+    configparser = ConfigParser()
+    configparser.read(ini_file)
+    configparser.defaults().update(dict(here=here))
+    configurator(dict(here=here,
+                      __file__=ini_file,
+                      zope_conf=zope_conf),
+                **dict(configparser.items(local_conf_key)))
+
+
 def configurator(global_conf, **local_conf):
     config.here = global_conf.get('here')
     config.ini_file = global_conf.get('__file__')
     config.zope_conf = global_conf.get('zope_conf')
-
+    
     configparser = ConfigParser()
     configparser.read(config.ini_file)
     
