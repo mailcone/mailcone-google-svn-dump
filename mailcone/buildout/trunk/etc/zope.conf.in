@@ -30,7 +30,6 @@ site-definition ${site_zcml:output}
   %import relstorage
   <relstorage>
     blob-dir ${zope_conf:blobstorage}
-    cache-servers ${memcached:socket}
     cache-prefix mailcone
     <postgresql>
       # The dsn is optional, as are each of the parameters in the dsn.
