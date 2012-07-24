@@ -20,9 +20,7 @@ class RegexItem(contents.BaseConditionItem):
         if not isinstance(source, (list,tuple,)):
             source = [source]
         for string in source:
-            match = re.match(self.regex, string)
-            if match is not None:
-                return True
-        return False
+            match = re.findall(re.compile(self.regex, re.MULTILINE), string)
+        return bool(len(match))
 
 
