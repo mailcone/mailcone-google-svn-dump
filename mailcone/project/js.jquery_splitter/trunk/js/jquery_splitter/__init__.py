@@ -3,11 +3,18 @@ from js.jquery import jquery
 
 library = Library('jquery_splitter', 'resources')
 
-splitter_js = Resource(
+
+splitter = Resource(
     library,
     'splitter.js',
     minified='splitter.min.js',
     depends=[jquery]
 )
 
-splitter = splitter_js
+
+fixed_splitter = Resource(
+    library,
+    'splitter.js',
+    minified='splitter.min.js',
+    depends=[jquery]
+)
