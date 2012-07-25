@@ -14,7 +14,7 @@ splitter = Resource(
 
 fixed_splitter = Resource(
     library,
-    'splitter.js',
-    minified='splitter.min.js',
+    'fixed_splitter.js',
+    minified='fixed_splitter.min.js',
     depends=[jquery]
 )
