@@ -38,7 +38,7 @@ def configurator(global_conf, **local_conf):
     
 def application_factory(global_conf, **local_conf):
     configurator(global_conf, **local_conf)
-    return application_factory(global_conf, **local_conf)
+    return startup.application_factory(global_conf, **local_conf)
 
 
 def debug_application_factory(global_conf, **local_conf):
