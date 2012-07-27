@@ -1,4 +1,3 @@
-
 import grok
 
 from zope import component
@@ -33,7 +32,7 @@ class SendMailItem(contents.BaseActionItem):
             self.send(mail)
             mapping = dict(factory=factory.title, title=self.title, addrs=self.mail_addrs, message=self.get_message(mail))
             msg = 'Rule <${factory}@${title}> successfully send email(s) to  ${addrs} \nmessage: ${message}'
-            return self.translate(_(msg, mapping=mapping), context=utils.getRequest())
+            return self.translate(_(msg, mapping=mapping))
         except Exception, e:
             return str(e)
     
