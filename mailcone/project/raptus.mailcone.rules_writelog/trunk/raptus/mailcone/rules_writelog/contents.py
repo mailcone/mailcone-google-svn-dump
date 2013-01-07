@@ -33,7 +33,7 @@ class WriteLogItem(contents.BaseActionItem):
     
     def write(self, mail):
         with open(self.path, 'a') as f:
-            f.write(self.get_message(mail))
+            f.write(unicode(self.get_message(mail)).encode('utf8'))
             f.write('\r\n')
         f.close()
 
